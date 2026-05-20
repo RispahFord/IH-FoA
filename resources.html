@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light only">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Free industrial hygiene resources and OSHA compliance guides from IH-FoA. Technical articles on silica, noise, IAQ, Legionella, lead exposure, hazcom, and more.">
+<title>Resources &amp; Blog | IH-FoA</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="site.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yygg_vb.woff2" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=optional" onload="this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=optional" rel="stylesheet"></noscript>
+<style>
+.blog-hero { display:grid; grid-template-columns:1.4fr 1fr; gap:40px; margin-bottom:64px; }
+.blog-featured {
+  border-radius:var(--radius); overflow:hidden; background:white;
+  box-shadow:var(--shadow); transition:var(--transition); cursor:pointer;
+}
+.blog-featured:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+.bf-thumb { height:320px; }
+.bf-body { padding:32px; }
+.bf-tag { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--blue-800); margin-bottom:10px; }
+.bf-body h3 { font-size:26px; font-weight:700; color:var(--dark-2); margin-bottom:12px; line-height:1.3; }
+.bf-body p { font-size:15px; color:var(--muted); margin-bottom:20px; }
+.bf-meta { display:flex; align-items:center; gap:16px; font-size:13px; color:var(--muted); border-top:1px solid #f1f5f9; padding-top:16px; }
+.bf-author { display:flex; align-items:center; gap:8px; }
+.bf-author-av { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--blue-600),var(--green-500)); color:white; font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center; }
+
+.blog-sidebar { display:flex; flex-direction:column; gap:16px; }
+.bs-card {
+  border-radius:10px; overflow:hidden; background:white;
+  box-shadow:0 2px 12px rgba(0,0,0,.06); display:flex; cursor:pointer;
+  transition:var(--transition); border:1px solid #f1f5f9;
+}
+.bs-card:hover { box-shadow:var(--shadow); transform:translateX(4px); }
+.bs-thumb { width:100px; flex-shrink:0; }
+.bs-body { padding:14px 16px; }
+.bs-tag { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--green-700); margin-bottom:4px; }
+.bs-body h4 { font-size:14px; font-weight:700; color:var(--dark-2); line-height:1.4; margin-bottom:4px; }
+.bs-body span { font-size:12px; color:var(--muted); }
+
+.blog-filters { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:40px; }
+.filter-pill { padding:7px 18px; border-radius:100px; font-size:13px; font-weight:600; cursor:pointer; transition:all .2s; border:1.5px solid #e2e8f0; background:white; color:var(--muted); }
+.filter-pill.active, .filter-pill:hover { background:var(--blue-800); color:white; border-color:var(--blue-800); }
+
+.blog-full-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+
+.newsletter-box {
+  border-radius:var(--radius); padding:48px;
+  background:linear-gradient(135deg,var(--blue-900),var(--green-900));
+  text-align:center; position:relative; overflow:hidden;
+}
+.newsletter-box::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(255,255,255,.05) 0%,transparent 70%);
+}
+.newsletter-box h3 { color:white; font-size:28px; margin-bottom:10px; position:relative; }
+.newsletter-box p  { color:rgba(255,255,255,.6); margin-bottom:28px; position:relative; }
+.newsletter-form { display:flex; gap:12px; max-width:440px; margin:0 auto; position:relative; }
+.newsletter-form input { flex:1; padding:13px 18px; border-radius:8px; border:none; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; outline:none; }
+@media (max-width:600px) {
+  .newsletter-form { flex-direction:column; }
+  .newsletter-form input { width:100%; }
+  .newsletter-form .btn { width:100%; text-align:center; }
+}
+</style>
+
+<!-- ═══════ NAV WHITE PROTOTYPE ═══════ -->
+<style>
+#site-nav {
+  background: #ffffff !important;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+}
+#site-nav.scrolled {
+  background: rgba(255,255,255,0.78) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.08), 0 4px 24px rgba(0,0,0,0.08) !important;
+}
+#site-nav .nav-inner {
+  display: flex !important;
+  align-items: center !important;
+}
+#site-nav .nav-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 36px !important;
+  flex: 1 !important;
+  justify-content: center !important;
+  margin: 0 24px !important;
+}
+#site-nav .nav-cta {
+  display: flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+}
+#site-nav .nav-links a {
+  color: var(--forest) !important;
+}
+#site-nav .nav-links a:hover,
+#site-nav .nav-links a.active {
+  color: #1e4221 !important;
+}
+#site-nav .nav-links a::after {
+  background: var(--forest) !important;
+}
+#site-nav .nav-logo img {
+  filter: none !important;
+}
+
+/* ── Mobile: restore hamburger, hide desktop links ── */
+@media (max-width: 900px) {
+  #site-nav .nav-links {
+    display: none !important;
+  }
+  #site-nav .nav-cta {
+    display: none !important;
+  }
+  .mobile-toggle {
+    display: block !important;
+  }
+  .mobile-toggle span {
+    background: #2B5C2E !important;
+  }
+  .mobile-toggle.open span {
+    background: #2B5C2E !important;
+  }
+}
+nav .nav-logo::after,
+nav .nav-cta a::after {
+  display: none !important;
+}
+nav .nav-logo {
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+nav .nav-logo:hover {
+  transform: translateY(-2px);
+  opacity: 0.85;
+}
+</style>
+</head>
+<body>
+<nav id="site-nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <picture>
+        <source srcset="images/ih-foa-logo-landscape.webp" type="image/webp">
+        <img src="images/ih-foa-logo-landscape.png" alt="IH-FoA Logo" width="160" height="36" fetchpriority="high" style="height:36px;width:auto;display:block;object-fit:contain;">
+      </picture>
+    </a>
+    <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links">
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="coverage.html">Coverage</a>
+      <a href="resources.html" class="active">Resources</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="nav-cta">
+      <a href="tel:6787403870" class="btn">Talk to an Expert</a>
+    </div>
+  </div>
+  <div class="mobile-menu">
+    <div class="mobile-menu-inner">
+    <div class="mobile-menu-brand">
+      <a href="index.html">
+        <img src="images/ih-foa-logo-white.svg" alt="IH-FoA Home" style="height:72px;width:auto;display:block;margin:0 auto;">
+      </a>
+    </div>
+      <div class="mobile-nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="coverage.html">Coverage</a>
+        <a href="resources.html">Resources</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div class="mobile-nav-cta">
+        <a href="tel:6787403870" class="btn btn-green">Talk to an Expert</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><strong>Resources</strong></div>
+    <h1>IH &amp; Safety Resources</h1>
+    <p>Expert insights on industrial hygiene, OSHA compliance, and workplace exposure monitoring from the IH-FoA team.</p>
+  </div>
+</div>
+
+<!-- FEATURED + SIDEBAR -->
+<section class="section" style="background:white;">
+  <div class="container">
+    <div class="blog-hero" data-reveal>
+      <!-- Featured post -->
+      <a href="blog/crystalline-silica.html" class="blog-featured" style="text-decoration:none;color:inherit;display:block;">
+        <div class="bf-thumb">
+          <img loading="lazy" src="images/blog-silica-dust.webp" alt="Featured article photo" style="width:100%; height:320px; object-fit:cover; border-radius:0;">
+        </div>
+        <div class="bf-body">
+          <div class="bf-tag">⭐ Featured · Silica Safety</div>
+          <h3>OSHA's Crystalline Silica Standard: A Complete Field Guide for Manufacturing Compliance</h3>
+          <p>Everything your facility needs to know about PEL requirements, exposure assessment triggers, written exposure control plans, and the engineering controls OSHA expects to see.</p>
+          <div class="bf-meta">
+            <div class="bf-author"><div class="bf-author-av">IH</div><span>IH-FoA Team</span></div>
+            <span>·</span>
+            <span>April 15, 2026</span>
+            <span>·</span>
+            <span>12 min read</span>
+          </div>
+        </div>
+      </a>
+      <!-- Sidebar posts -->
+      <div class="blog-sidebar">
+        <a href="blog/powder-coating-combustible-dust.html" class="bs-card" style="text-decoration:none;color:inherit;">
+          <div class="bs-thumb"><img loading="lazy" src="images/blog-combustible-dust.webp" alt="Combustible dust" style="width:100%; height:100%; object-fit:cover; border-radius:0;"></div>
+          <div class="bs-body">
+            <div class="bs-tag">Combustible Dust</div>
+            <h4>Fire, Combustible Dust &amp; Exposure Risk in Electrostatic Powder Coating</h4>
+            <span>February 2026 &middot; 8 min</span>
+          </div>
+        </a>
+        <!-- Additional sidebar posts added here as new articles are published -->
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="blog-filters" data-reveal>
+      <div class="filter-pill active">All Topics</div>
+      <div class="filter-pill">Silica &amp; Dust</div>
+      <div class="filter-pill">Combustible Dust</div>
+    </div>
+
+    <!-- Full grid — additional posts added here as published -->
+    <div class="blog-full-grid">
+      <!-- Blog cards added here as new posts are published -->
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section-sm" style="padding:64px 0;background:var(--light);">
+  <div class="container">
+    <div class="newsletter-box" data-reveal>
+      <h3>IH &amp; Compliance Insights, Monthly</h3>
+      <p>Practical guidance on industrial hygiene, exposure monitoring, and regulatory updates, delivered directly to your inbox.</p>
+      <div class="newsletter-form" id="newsletter-wrap">
+        <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="newsletter-form" style="display:flex;flex-direction:column;gap:10px;width:100%;max-width:440px;margin:0 auto;">
+          <input type="hidden" name="form-name" value="newsletter">
+          <input type="hidden" name="bot-field" style="display:none;">
+          <input type="text" name="name" id="newsletter-name" placeholder="Your first name" required style="padding:13px 18px;border-radius:8px;border:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;outline:none;width:100%;">
+          <input type="email" name="email" id="newsletter-email" placeholder="your@email.com" required style="padding:13px 18px;border-radius:8px;border:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;outline:none;width:100%;">
+          <button type="submit" class="btn btn-primary" style="white-space:nowrap;width:100%;justify-content:center;">Subscribe →</button>
+        </form>
+        <div id="newsletter-success" style="display:none;text-align:center;padding:8px 0;">
+          <p style="font-size:28px;margin-bottom:8px;">✓</p>
+          <p style="color:white;font-weight:700;font-size:18px;margin-bottom:6px;">You're in, <span id="newsletter-name-display"></span>!</p>
+          <p style="color:rgba(255,255,255,0.7);font-size:14px;">IH &amp; Compliance Insights will land in your inbox monthly. No spam, ever.</p>
+        </div>
+        <p id="newsletter-error" style="display:none;color:rgba(255,120,120,0.9);font-size:13px;margin-top:8px;text-align:center;">Something went wrong. Email us directly at <a href="mailto:info@ih-foa.com" style="color:white;text-decoration:underline;">info@ih-foa.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div style="align-self: flex-start;"><div class="footer-logo"><a href="index.html"><img src="images/IH_FOA.png" alt="IH/FoA Logo" style="height: 120px; width: auto;" /></a></div><div class="footer-social" style="margin-top:20px;"><a href="https://www.linkedin.com/company/industrial-hygiene-forensics-of-americus/" target="_blank" rel="noopener noreferrer" aria-label="IH-FoA on LinkedIn"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div><p style="color: rgba(255,255,255,0.6); font-size: 13px; margin-top:10px;">Expert Industrial Hygiene — Georgia &amp; Southeast</p></div>
+      <div><p class="footer-col-head">Services</p><ul><li><a href="services.html">Air Sampling</a></li><li><a href="services.html">Noise Surveys</a></li><li><a href="services.html">Indoor Air Quality</a></li><li><a href="services.html">Mock OSHA Audits</a></li><li><a href="services.html">Respiratory Testing</a></li><li><a href="services.html">Written Programs</a></li></ul></div>
+      <div><p class="footer-col-head">Company</p><ul><li><a href="about.html">About Us</a></li><li><a href="coverage.html">Coverage</a></li><li><a href="resources.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><p class="footer-col-head">Contact</p><ul><li><a href="tel:6787403870">Call Us</a></li><li><a href="mailto:info@ih-foa.com">info@ih-foa.com</a></li><li style="color:rgba(255,255,255,.65);font-size:13px;">Marietta, GA 30064</li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span style="color: rgba(255,255,255,0.6);">© 2026 Industrial Hygiene Forensics of Americus, LLC · All rights reserved</span>
+      <a href="http://redolense.com" target="_blank" rel="noopener noreferrer" class="redolens-credit" aria-label="Crafted by Redolense">
+        <span class="redolens-prefix">Crafted by</span>
+        <span class="redolens-name">Redolense</span>
+      </a>
+    </div>
+  </div>
+</footer>
+<script src="site.js" defer></script>
+
+<!-- ── Back to top ── -->
+<script>
+document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const form = this;
+  const name = document.getElementById('newsletter-name').value.trim();
+  const email = document.getElementById('newsletter-email').value.trim();
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ 'form-name': 'newsletter', 'name': name, 'email': email }).toString()
+  })
+  .then(() => {
+    form.style.display = 'none';
+    document.getElementById('newsletter-name-display').textContent = name.split(' ')[0];
+    document.getElementById('newsletter-success').style.display = 'block';
+  })
+  .catch(() => {
+    document.getElementById('newsletter-error').style.display = 'block';
+  });
+});
+</script>
+<button id="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+</body>
+</html>

@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en" style="--blue-800: #2B5C2E; --green-700: #2B5C2E; --forest: #2B5C2E; --forest-dark: #1e4221;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<meta name="theme-color" content="#ffffff">
+<title>OSHA's Crystalline Silica Standard: A Complete Field Guide | IH-FoA</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../site.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"></noscript>
+<style>
+/* ── FORCE BRAND COLORS ── */
+html, :root {
+  --blue-950: #0a1a0b !important;
+  --blue-900: #1a3a1c !important;
+  --blue-800: #2B5C2E !important;
+  --blue-600: #3a7a3e !important;
+  --blue-400: #6aab6e !important;
+  --blue-100: #e8f2e8 !important;
+  --green-900: #1e4221 !important;
+  --green-700: #2B5C2E !important;
+  --green-500: #3a7a3e !important;
+  --green-400: #6aab6e !important;
+  --green-100: #e8f2e8 !important;
+  --dark: #0a1a0b !important;
+  --dark-2: #1a2e1b !important;
+  --forest: #2B5C2E !important;
+  --forest-dark: #1e4221 !important;
+  --forest-mid: #3a7a3e !important;
+  --forest-light: #e8f2e8 !important;
+  --rust: #7B3B2A !important;
+  --rust-dark: #5c2b1e !important;
+}
+
+/* ── BLOG ARTICLE STYLES ── */
+.blog-hero {
+  position: relative !important;
+  min-height: 480px !important;
+  background-size: cover !important;
+  background-position: center !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  padding: 80px 0 60px !important;
+  margin-bottom: 60px !important;
+}
+
+.blog-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(10, 26, 11, 0.3), rgba(10, 26, 11, 0.85));
+}
+
+.blog-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.blog-category {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(43, 92, 46, 0.9);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.blog-hero h1 {
+  font-size: 42px;
+  font-weight: 800;
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.blog-meta {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
+}
+
+.blog-article {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+.blog-article h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 48px 0 24px;
+  line-height: 1.3;
+}
+
+.blog-article h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #2B5C2E;
+  margin: 36px 0 20px;
+  line-height: 1.4;
+}
+
+.blog-article p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444444;
+  margin-bottom: 20px;
+}
+
+.blog-article strong {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.blog-article hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 40px 0;
+}
+
+.blog-article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 32px 0;
+  font-size: 15px;
+}
+
+.blog-article table thead {
+  background: #2B5C2E;
+  color: white;
+}
+
+.blog-article table th {
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+  border: 1px solid #2B5C2E;
+}
+
+.blog-article table td {
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  color: #444444;
+}
+
+.blog-article table tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.pull-quote {
+  border-left: 4px solid #7B3B2A;
+  background: #f9f6f4;
+  padding: 24px;
+  margin: 32px 0;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #444444;
+}
+
+.blog-cta {
+  background: linear-gradient(135deg, #0a1a0b 0%, #1a3a1c 100%);
+  padding: 60px 40px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 60px 0 40px;
+}
+
+.blog-cta h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.blog-cta p {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 28px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.blog-cta .btn {
+  display: inline-block;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, #2B5C2E, #2B5C2Ecc);
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.blog-cta .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(43, 92, 46, 0.4);
+}
+
+.blog-footer-note {
+  font-size: 14px;
+  color: #888;
+  font-style: italic;
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #e0e0e0;
+}
+
+@media (max-width: 768px) {
+  .blog-hero {
+    min-height: 360px;
+    padding: 60px 0 40px;
+  }
+  
+  .blog-hero h1 {
+    font-size: 32px;
+  }
+  
+  .blog-article h2 {
+    font-size: 24px;
+  }
+  
+  .blog-article h3 {
+    font-size: 20px;
+  }
+  
+  .blog-cta {
+    padding: 40px 24px;
+  }
+  
+  .blog-cta h3 {
+    font-size: 24px;
+  }
+}
+</style>
+
+<!-- ═══════ NAV WHITE PROTOTYPE ═══════ -->
+<style>
+#site-nav {
+  background: #ffffff !important;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+}
+#site-nav.scrolled {
+  background: rgba(255,255,255,0.78) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.08), 0 4px 24px rgba(0,0,0,0.08) !important;
+}
+#site-nav .nav-inner {
+  display: flex !important;
+  align-items: center !important;
+}
+#site-nav .nav-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 36px !important;
+  flex: 1 !important;
+  justify-content: center !important;
+  margin: 0 24px !important;
+}
+#site-nav .nav-cta {
+  display: flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+}
+#site-nav .nav-links a { color: var(--forest) !important; }
+#site-nav .nav-links a:hover,
+#site-nav .nav-links a.active { color: #1e4221 !important; }
+#site-nav .nav-links a::after { background: var(--forest) !important; }
+#site-nav .nav-logo img { filter: none !important; }
+nav .nav-logo::after, nav .nav-cta a::after { display: none !important; }
+nav .nav-logo { transition: transform 0.25s ease, opacity 0.25s ease; }
+nav .nav-logo:hover { transform: translateY(-2px); opacity: 0.85; }
+@media (max-width: 900px) {
+  #site-nav .nav-links { display: none !important; }
+  #site-nav .nav-cta { display: none !important; }
+  .mobile-toggle { display: block !important; }
+  .mobile-toggle span { background: #2B5C2E !important; }
+  .mobile-toggle.open span { background: #2B5C2E !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<nav id="site-nav">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <picture>
+        <source srcset="../images/ih-foa-logo-landscape.webp" type="image/webp">
+        <img src="../images/ih-foa-logo-landscape.png" alt="IH-FoA Logo" width="160" height="36" fetchpriority="high" style="height:36px;width:auto;display:block;object-fit:contain;">
+      </picture>
+    </a>
+    <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="../about.html">About Us</a>
+      <a href="../services.html">Services</a>
+      <a href="../coverage.html">Coverage</a>
+      <a href="../resources.html" class="active">Resources</a>
+      <a href="../contact.html">Contact Us</a>
+    </div>
+    <div class="nav-cta">
+      <a href="tel:6787403870" class="btn">Talk to an Expert</a>
+    </div>
+  </div>
+  <div class="mobile-menu">
+    <div class="mobile-menu-inner">
+      <div class="mobile-menu-brand">
+        <a href="../index.html">
+          <img src="../images/ih-foa-logo-white.svg" alt="IH-FoA Home" style="height:72px;width:auto;display:block;margin:0 auto;">
+        </a>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About Us</a>
+        <a href="../services.html">Services</a>
+        <a href="../coverage.html">Coverage</a>
+        <a href="../resources.html" class="active">Resources</a>
+        <a href="../contact.html">Contact Us</a>
+      </div>
+      <div class="mobile-nav-cta">
+        <a href="tel:6787403870" class="btn btn-green">Talk to an Expert</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ── BLOG HERO ── -->
+<section class="blog-hero" style="background-image: url('../images/blog-silica-dust.webp');">
+  <div class="container">
+    <div class="blog-hero-content">
+      <span class="blog-category">SILICA SAFETY</span>
+      <h1>OSHA's Crystalline Silica Standard: A Complete Field Guide for Manufacturing Compliance</h1>
+      <div class="blog-meta">IH-FoA Team | April 15, 2026 | 12 min read</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ARTICLE BODY ── -->
+<article class="blog-article">
+  
+  <p><strong>Published by IH-FoA | Industrial Hygiene Forensics of Americus, LLC | Marietta, Georgia</strong></p>
+
+  <hr>
+
+  <h2>The Standard Is in Force. The Question Is Whether Your Documentation Is.</h2>
+
+  <p>Since OSHA's crystalline silica rule took full effect for general industry in 2018, enforcement has been consistent. Citations have been issued, penalties have climbed, and in manufacturing environments where silica-generating processes run daily, the gap between assumed compliance and documented compliance is often wider than facility managers expect.</p>
+
+  <p>Crystalline silica is one of OSHA's priority hazards, meaning it receives dedicated inspection attention, not just incidental coverage during general walkthroughs. If your facility generates silica dust through any common manufacturing process, you need more than awareness. You need a field-ready compliance framework.</p>
+
+  <p>This guide breaks down the standard's core requirements in plain language, so your EHS team, your operations leads, and your supervisors can act on it, not just file it.</p>
+
+  <hr>
+
+  <h2>What Is Crystalline Silica, and Why Does It Matter?</h2>
+
+  <p>Crystalline silica is a naturally occurring mineral compound found in sand, rock, concrete, brick, mortar, and a wide range of engineered materials. In manufacturing, it shows up where you might least expect it: in foundry sand, refractory materials, abrasive blasting media, ceramite and porcelain components, and raw minerals used across ceramics, glass, and construction product lines.</p>
+
+  <p>When materials containing silica are cut, drilled, ground, crushed, or otherwise disturbed, fine airborne particles, called respirable crystalline silica (RCS), are released. "Respirable" means the particles are small enough (typically below 10 microns) to travel deep into the lungs. Unlike larger dust particles, the body cannot clear RCS efficiently. Over time, accumulated silica particles trigger a fibrotic response in lung tissue.</p>
+
+  <p>The resulting disease, <strong>silicosis</strong>, is irreversible and can be fatal. Chronic silicosis can develop after 10 or more years of moderate exposure. Accelerated silicosis can develop in as few as five years under higher exposures. Acute silicosis, the most severe form, can progress rapidly and prove fatal within months of intense exposure. Silica exposure also significantly elevates the risk of lung cancer, kidney disease, and autoimmune conditions.</p>
+
+  <p>This is not a theoretical risk. OSHA estimates that 2.3 million workers in the U.S. are exposed to silica on the job. In manufacturing, that number includes a substantial portion of your workforce if silica-generating processes are present.</p>
+
+  <hr>
+
+  <h2>OSHA's PEL: Understanding the Numbers That Define Compliance</h2>
+
+  <p>OSHA's crystalline silica standard (29 CFR 1910.1053 for general industry) establishes two critical airborne exposure limits measured as an 8-hour time-weighted average (TWA):</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Limit</th>
+        <th>Value</th>
+        <th>What It Means</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Permissible Exposure Limit (PEL)</strong></td>
+        <td>50 µg/m³</td>
+        <td>The legal ceiling. Workers must not exceed this as a TWA.</td>
+      </tr>
+      <tr>
+        <td><strong>Action Level (AL)</strong></td>
+        <td>25 µg/m³</td>
+        <td>The trigger threshold. Once reached, specific compliance obligations activate.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Both values apply to <strong>respirable</strong> crystalline silica, meaning particle sampling must use a respirable fraction sampler, not total dust collection. This distinction matters for both monitoring protocol and equipment procurement.</p>
+
+  <p>Prior to the 2016 rule, the PEL for silica in general industry was considerably higher; the new 50 µg/m³ limit represents a significant reduction in allowable exposure. If your facility's air monitoring data predates 2016 or used legacy methods, that data is not sufficient to demonstrate current compliance.</p>
+
+  <hr>
+
+  <h2>When Are You Required to Act? Exposure Assessment Triggers</h2>
+
+  <p>One of the most misunderstood aspects of the silica standard is that compliance obligations don't wait until someone gets sick; they activate based on the <em>potential</em> for exposure at or above the action level.</p>
+
+  <p>OSHA requires employers to assess the exposure of each employee who is, or may reasonably be expected to be, exposed at or above the action level. That assessment can be conducted through one of three methods:</p>
+
+  <p><strong>1. Objective Data</strong><br>
+  Pre-existing air monitoring data or published industry studies that demonstrate exposure levels for the specific tasks and conditions in your facility. This is the most efficient route, but the data must be task-specific, material-specific, and reflective of your actual work conditions.</p>
+
+  <p><strong>2. Performance of Initial Monitoring</strong><br>
+  Full-shift personal air sampling using OSHA-compliant methods (OSHA Method ID-142 or NIOSH 7500/7602). Samples must be analyzed by an accredited laboratory. This is often the default path for most manufacturing facilities that lack applicable objective data.</p>
+
+  <p><strong>3. Presumptive Exposure</strong><br>
+  Where monitoring data is unavailable and the nature of the work makes it reasonable to assume exposure at or above the action level, employers are expected to treat it as such and apply full compliance controls.</p>
+
+  <p>Common manufacturing trigger processes include: abrasive blasting with silica-containing media, cutting or grinding concrete or stone products, foundry operations, ceramics mixing and forming, and certain machining operations on composite materials.</p>
+
+  <p>If any of these operations exist in your facility and a formal exposure assessment has not been conducted, that represents a documentation gap that warrants attention.</p>
+
+  <hr>
+
+  <h2>The Written Exposure Control Plan: Your Compliance Foundation</h2>
+
+  <p>For any task where employee exposure is, or may reasonably be, at or above the action level, OSHA requires a <strong>Written Exposure Control Plan (ECP)</strong>. This is not optional, and it is not a form you download and sign; it is a living document specific to your facility.</p>
+
+  <p>A compliant ECP must include:</p>
+
+  <ul style="margin: 20px 0; padding-left: 24px;">
+    <li style="margin-bottom: 12px;"><strong>Identification of all tasks</strong> and associated job classifications that involve silica exposure</li>
+    <li style="margin-bottom: 12px;"><strong>Engineering controls and work practices</strong> used to limit exposure for each task</li>
+    <li style="margin-bottom: 12px;"><strong>Housekeeping measures</strong>, specifically the prohibition of dry sweeping or compressed air cleaning where silica dust is present</li>
+    <li style="margin-bottom: 12px;"><strong>Procedures for restricting access</strong> to high-exposure areas</li>
+    <li style="margin-bottom: 12px;"><strong>The responsible party</strong> for implementing and reviewing the plan</li>
+  </ul>
+
+  <p>The ECP must be reviewed and updated at least annually and whenever tasks, materials, or processes change. It must be accessible to employees and their designated representatives. OSHA inspectors routinely request the ECP early in any silica-related inspection; its absence or inadequacy is a citation in itself.</p>
+
+  <hr>
+
+  <h2>Engineering Controls: The Priority Hierarchy</h2>
+
+  <p>OSHA's silica standard follows a strict hierarchy of controls. Administrative controls and respiratory protection are explicitly secondary; engineering controls come first, and they must be implemented to the extent feasible before other methods are applied.</p>
+
+  <p><strong>Local Exhaust Ventilation (LEV)</strong> is the workhorse of silica control in manufacturing. Capture hoods, slot hoods, and enclosures positioned at the point of generation, before dust becomes airborne in the broader work environment, are the standard approach for grinding, cutting, and machining operations. LEV systems must be maintained, inspected, and documented.</p>
+
+  <p><strong>Wet Methods</strong> suppress dust generation at the source by introducing water or a wetting agent during cutting, grinding, or drilling. They are particularly effective in stone and concrete product manufacturing. Wet suppression requires a controlled application rate and drainage management; it is not simply running a hose near the work.</p>
+
+  <p><strong>Enclosed Cab or Control Room Operation</strong> is the engineering control of choice for heavy silica-generating operations like bulk material handling, crushing, and certain blasting operations. Isolating the operator from the process eliminates the inhalation pathway entirely.</p>
+
+  <p><strong>Process Substitution</strong>, replacing silica-containing materials with lower-hazard alternatives, is the most complete engineering solution. Where alternative abrasive media (steel shot, glass bead, garnet) or non-silica raw materials are technically and economically feasible, substitution should be seriously evaluated.</p>
+
+  <p>Where engineering controls are in place but residual exposures remain at or above the PEL, respiratory protection, specifically minimum N95 filtering facepiece respirators for most exposures, must be provided through a fully compliant respiratory protection program under 29 CFR 1910.134.</p>
+
+  <hr>
+
+  <h2>Medical Surveillance, Training, and Recordkeeping</h2>
+
+  <p>Beyond controls, the silica standard imposes three additional compliance pillars:</p>
+
+  <p><strong>Medical Surveillance</strong> is required for any employee who will be exposed at or above the action level for 30 or more days per year. Surveillance includes a medical examination by a physician or licensed healthcare professional every three years, with a specific focus on respiratory status. The employer bears the cost; employees must be offered, not simply told about, this benefit.</p>
+
+  <p><strong>Employee Training</strong> must be provided before initial assignment to silica-generating tasks and repeated annually. Training must cover: the health hazards of silica, specific tasks and conditions that create exposure, engineering controls and work practices in use, PPE selection and use, and the medical surveillance program. Training records must be retained.</p>
+
+  <p><strong>Recordkeeping</strong> obligations include: air monitoring records (30-year retention), objective data records (30-year retention), and medical surveillance records (duration of employment plus 30 years). These retention requirements reflect the long latency period of silicosis; records generated today may be needed decades from now.</p>
+
+  <hr>
+
+  <h2>The Cost of Non-Compliance vs. The Cost of Getting It Right</h2>
+
+  <p>OSHA's enhanced penalty structure, in effect since 2016, makes enforcement expensive. Serious violations carry penalties up to $16,131 per violation. Willful or repeated violations can reach $161,323 per instance. A single inspection of a silica-non-compliant manufacturing facility can generate multiple citations across the exposure assessment, ECP, engineering controls, medical surveillance, and training requirements.</p>
+
+  <p>Beyond OSHA penalties, silicosis-related workers' compensation claims and litigation exposure create compounding liability for facilities that have not taken the standard seriously.</p>
+
+  <div class="pull-quote">
+    The cost of a professionally conducted exposure assessment, a facility-specific written ECP, and engineered controls is not a compliance burden; it is risk management with a measurable return.
+  </div>
+
+  <hr>
+
+  <h2>IH-FoA Provides Silica Compliance Support Across the Southeast</h2>
+
+  <p>IH-FoA is an industrial hygiene consulting firm based in Marietta, Georgia, serving manufacturing, construction, and industrial facilities across the Southeast. We provide exposure assessments using NIOSH/OSHA standard methods, written exposure control plan development, engineering control evaluations, and employee training programs, built around your actual processes, materials, and workforce. All analytical work is supported through an AIHA-LAP accredited laboratory with complete LOD/LOQ documentation.</p>
+
+  <p>Each engagement is approached with consistency, clarity, and attention to how the results will be used in practice. The goal is not just a report; it is a documented compliance position you can act on and stand behind.</p>
+
+  <p><strong>If your facility has silica-generating operations and your compliance documentation is not current, an exposure assessment is the right starting point.</strong></p>
+
+  <!-- ── CTA SECTION ── -->
+  <div class="blog-cta">
+    <h3>Start with a Clear View of Your Silica Risk</h3>
+    <p>Whether you're responding to a concern or planning ahead, IH-FoA provides the clarity needed to move forward with confidence. Get in touch to discuss your facility's needs.</p>
+    <a href="../contact.html" class="btn">Schedule an Assessment</a>
+  </div>
+
+  <div class="blog-footer-note">
+    <p><em>IH-FoA | Industrial Hygiene Forensics of Americus, LLC | Marietta, Georgia</em></p>
+    <p><em>This article is intended for informational purposes and does not constitute legal advice. OSHA compliance obligations should be evaluated by a qualified industrial hygiene professional based on your specific workplace conditions.</em></p>
+  </div>
+
+</article>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div style="align-self: flex-start;">
+        <div class="footer-logo"><a href="../index.html"><img src="../images/IH_FOA.png" alt="IH/FoA Logo" style="height: 120px; width: auto;" /></a></div>
+        <div class="footer-social" style="margin-top:20px;">
+          <a href="https://www.linkedin.com/company/industrial-hygiene-forensics-of-americus/" target="_blank" rel="noopener noreferrer" style="margin-right:12px;" aria-label="IH-FoA on LinkedIn"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="#" style="margin-right:12px;"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
+          <a href="#"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        </div>
+        <p style="color: rgba(255,255,255,0.6); font-size: 13px; margin-top:10px;">Expert Industrial Hygiene — Georgia &amp; Southeast</p>
+        
+      </div>
+      <div>
+        <p class="footer-col-head">Services</p>
+        <ul>
+          <li><a href="../services.html">Air Sampling</a></li>
+          <li><a href="../services.html">Noise Surveys</a></li>
+          <li><a href="../services.html">Indoor Air Quality</a></li>
+          <li><a href="../services.html">Mock OSHA Audits</a></li>
+          <li><a href="../services.html">Respiratory Testing</a></li>
+          <li><a href="../services.html">Written Programs</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-head">Company</p>
+        <ul>
+          <li><a href="../about.html">About Us</a></li>
+          <li><a href="../coverage.html">Coverage Area</a></li>
+          <li><a href="../resources.html">Blog &amp; News</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-head">Contact</p>
+        <ul>
+          <li><a href="tel:6787403870">(678) 740-3870</a></li>
+          <li><a href="mailto:info@ih-foa.com">info@ih-foa.com</a></li>
+          <li style="color:rgba(255,255,255,.65);font-size:13px;line-height:1.6;">2500 Dallas Hwy<br>Suite 202-1275<br>Marietta, GA 30064</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span style="color: rgba(255,255,255,0.6);">© 2026 Industrial Hygiene Forensics of Americus, LLC · All rights reserved</span>
+      <a href="http://redolense.com" target="_blank" rel="noopener noreferrer" class="redolens-credit" aria-label="Crafted by Redolense">
+        <span class="redolens-prefix">Crafted by</span>
+        <span class="redolens-name">Redolense</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ── Back to top ── -->
+<button id="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+</body>
+</html>

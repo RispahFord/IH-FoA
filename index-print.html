@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<meta name="theme-color" content="#ffffff">
+<title>IH-FoA — Industrial Hygiene Forensics of Americus</title>
+<link rel="stylesheet" href="site.css">
+<style>
+/* ── PRINT OVERRIDES ── */
+@page { size: A4 landscape; margin: 0; }
+
+/* Make all reveal elements visible immediately */
+[data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+
+/* Force color printing */
+* { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+body { font-size: 14px; }
+
+/* Fix nav for print */
+#site-nav { position: relative !important; background: #0c1a40 !important; backdrop-filter: none !important; padding: 14px 0 !important; }
+
+/* Hero adjustments */
+.hero { min-height: auto; padding: 60px 0 50px; }
+.hero-grid { gap: 40px; }
+.hero h1 { font-size: 48px; }
+.hero p  { font-size: 15px; }
+.hero-visual { height: 360px; }
+
+/* Page breaks between major sections */
+.ticker-wrap       { break-before: page; }
+.section.bg-mesh:first-of-type { break-before: page; }
+.section[style*="background:white"] { break-before: page; }
+.section-dark      { break-before: page; }
+.section[style*="background:white"]:nth-of-type(3) { break-before: page; }
+.section.bg-light  { break-before: page; }
+#contact           { break-before: page; }
+footer             { break-before: page; }
+
+/* Avoid breaking inside cards */
+.why-card, .step-item, .testi-card, .blog-card, .path-card { break-inside: avoid; }
+
+/* Remove animations and transitions */
+*, *::before, *::after { animation: none !important; transition: none !important; }
+
+/* Ticker — show as static row */
+.ticker-wrap { padding: 12px 0; }
+.ticker { animation: none !important; transform: none !important; width: auto !important; flex-wrap: wrap; justify-content: center; gap: 16px 32px; padding: 0 40px; }
+
+/* Backdrop filters won't print — give glass cards solid backgrounds */
+.glass-card      { background: rgba(240,246,255,0.95) !important; backdrop-filter: none !important; }
+.glass-card-dark { background: rgba(30,40,70,0.95)   !important; backdrop-filter: none !important; }
+.path-card       { background: rgba(20,30,60,0.9)    !important; backdrop-filter: none !important; }
+
+/* Nav glass */
+#site-nav.scrolled { backdrop-filter: none !important; background: rgba(10,15,30,0.97) !important; }
+
+/* Testimonial track — show all inline */
+.testi-track-wrap { overflow: visible !important; }
+.testi-track { transform: none !important; flex-wrap: wrap; }
+.testi-card  { flex: 0 0 calc(33.33% - 16px); }
+
+/* Contact section */
+.contact-split { gap: 40px; }
+
+/* Hide interactive / non-print elements */
+.testi-dots,
+.tweaks-panel,
+[class*="twk-"],
+script { display: none !important; }
+
+/* Fix footer grid for print */
+.footer-grid { gap: 32px; }
+
+/* Ensure section padding is reasonable */
+.section    { padding: 60px 0; }
+.section-sm { padding: 40px 0; }
+
+/* CTA banner */
+.cta-banner { padding: 40px; }
+
+/* Remove hero::before radial gradient clipping issues in print */
+.hero::before { display: none; }
+.bg-mesh::before { display: none; }
+</style>
+<style>
+/* ── HERO PATH CARDS ── */
+.path-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; max-width: 720px; }
+.path-card {
+  padding: 28px 28px 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--gborder-d);
+  background: var(--glass-d);
+  backdrop-filter: blur(16px);
+  transition: var(--transition);
+  position: relative; overflow: hidden;
+}
+.path-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--blue-600), var(--green-500));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s;
+}
+.path-card:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); transform: translateY(-4px); }
+.path-card:hover::before { transform: scaleX(1); }
+.path-card-icon { font-size: 28px; margin-bottom: 14px; }
+.path-card h3 { font-size: 17px; font-weight: 700; color: white; margin-bottom: 8px; }
+.path-card p  { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 16px; }
+.path-link { font-size: 13px; font-weight: 600; color: var(--green-400); display: inline-flex; align-items: center; gap: 6px; }
+.path-link:hover { color: var(--green-300); }
+
+/* ── SERVICES TICKER ── */
+.ticker-wrap { background: linear-gradient(135deg, var(--blue-900), var(--green-900)); padding: 16px 0; overflow: hidden; }
+.ticker { display: flex; gap: 48px; animation: ticker 25s linear infinite; width: max-content; align-items: center; }
+.ticker-item { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+.ticker-sep { color: var(--green-400); font-size: 18px; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ── OSHA READY SECTION ── */
+.osha-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.osha-imgs { position: relative; height: 520px; }
+.osha-img-main { position: absolute; top: 0; right: 0; width: 76%; height: 380px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); }
+.osha-img-sub  { position: absolute; bottom: 0; left: 0; width: 58%; height: 280px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); border: 4px solid white; }
+.osha-img-float {
+  position: absolute; top: 200px; left: calc(58% - 30px);
+  background: white;
+  border-radius: 12px; padding: 16px 20px;
+  box-shadow: var(--shadow-lg); min-width: 160px;
+  border-left: 4px solid var(--green-500);
+}
+.osha-img-float strong { display: block; font-size: 26px; font-weight: 800; color: var(--blue-900); }
+.osha-img-float span { font-size: 12px; color: var(--muted); }
+
+.service-checks { display: flex; flex-direction: column; gap: 12px; margin: 24px 0 32px; }
+.service-check { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 500; color: var(--dark-2); }
+.service-check::before { content: '✓'; width: 24px; height: 24px; border-radius: 50%; background: var(--green-100); color: var(--green-700); font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+/* ── SERVICES OVERVIEW ── */
+.services-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.services-imgs { position: relative; height: 480px; }
+.srv-img-a { position: absolute; top: 0; left: 0; width: 65%; height: 320px; border-radius: var(--radius); overflow: hidden; }
+.srv-img-b { position: absolute; bottom: 0; right: 0; width: 55%; height: 240px; border-radius: var(--radius); overflow: hidden; border: 4px solid white; box-shadow: var(--shadow); }
+.srv-img-c { position: absolute; top: 180px; left: calc(65% - 20px); width: 120px; height: 120px; border-radius: var(--radius); overflow: hidden; border: 3px solid white; box-shadow: var(--shadow); }
+
+/* ── DARK SECTION BASE ── */
+.section-dark { background: linear-gradient(135deg, var(--dark) 0%, #0a1e10 100%); }
+
+/* ── BLOG PREVIEW CARDS ── */
+.blog-card { border: 1px solid #f1f5f9; }
+.blog-thumb .img-ph { height: 200px; border-radius: 0; }
+
+/* ── CONTACT SPLIT ── */
+.contact-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.contact-info { padding-right: 0; }
+.contact-info h2 { margin-bottom: 16px; }
+.contact-info p  { margin-bottom: 32px; }
+.contact-detail { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
+.contact-detail-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--blue-100); color: var(--blue-800); font-size: 18px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.contact-detail-text strong { display: block; font-size: 14px; font-weight: 700; color: var(--dark-2); margin-bottom: 2px; }
+.contact-detail-text span  { font-size: 14px; color: var(--muted); }
+
+/* ── TWEAKS PANEL ── */
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="site-nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-mark">IH</div>
+      IH-FoA<span class="logo-accent">.</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="coverage.html">Coverage</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="nav-cta">
+      <a href="tel:6787403870" class="nav-phone">☎ (678) 740-3870</a>
+      <a href="tel:6787403870" class="btn">Talk to an Expert</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-tag" data-reveal>
+          <span class="dot"></span>
+          Georgia &amp; Southeast IH Consulting
+        </div>
+        <h1 data-reveal data-delay="1">Exposure Risks<br><em>Found. Fixed.</em><br>Documented.</h1>
+        <p data-reveal data-delay="2">Rapid onsite response. OSHA-defensible reporting. 24–48 hour exposure assessments for manufacturing, construction &amp; industrial facilities.</p>
+        <div class="hero-btns" data-reveal data-delay="3">
+          <a href="contact.html" class="btn btn-primary">Schedule Assessment</a>
+          <a href="services.html" class="btn btn-outline">View Services</a>
+        </div>
+
+        <div class="path-cards" data-reveal data-delay="4">
+          <div class="path-card">
+            <div class="path-card-icon">🧪</div>
+            <h3>Exposure Assessments</h3>
+            <p>Air sampling, silica, metals, noise, VOCs — OSHA defensible results</p>
+            <a href="services.html" class="path-link">Explore Services →</a>
+          </div>
+          <div class="path-card">
+            <div class="path-card-icon">📋</div>
+            <h3>OSHA Compliance</h3>
+            <p>Mock inspections, written programs, respiratory protection, HazCom</p>
+            <a href="services.html#compliance" class="path-link">Get Audit-Ready →</a>
+          </div>
+        </div>
+
+        <div class="hero-stats" data-reveal data-delay="5">
+          <div class="hero-stat">
+            <div class="num"><span data-count="15" data-suffix="+">15+</span></div>
+            <div class="lbl">Years Experience</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num"><span data-count="48" data-suffix="hr">48hr</span></div>
+            <div class="lbl">Onsite Response</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num"><span data-count="12" data-suffix="">12</span></div>
+            <div class="lbl">States Served</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num"><span data-count="100" data-suffix="%">100%</span></div>
+            <div class="lbl">OSHA Defensible</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: stacked image placeholders -->
+      <div class="hero-visual" data-reveal="right">
+        <div class="hero-card-img" style="width:300px;height:210px;top:0;right:0;">
+          <div class="img-ph img-ph-dark" style="height:100%;">
+            <svg width="40" height="40" fill="none" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 2"/><circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="1.5"/></svg>
+            Air sampling technician
+          </div>
+        </div>
+        <div class="hero-card-img" style="width:260px;height:185px;top:175px;right:70px;">
+          <div class="img-ph img-ph-dark" style="height:100%;">
+            <svg width="40" height="40" fill="none" viewBox="0 0 40 40"><rect x="8" y="12" width="24" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M14 12V9a2 2 0 014 0v3M22 12V9a2 2 0 014 0v3" stroke="currentColor" stroke-width="1.5"/></svg>
+            Lab analysis / reporting
+          </div>
+        </div>
+        <div class="hero-card-img" style="width:200px;height:150px;top:310px;right:270px;">
+          <div class="img-ph img-ph-dark" style="height:100%;">
+            <svg width="36" height="36" fill="none" viewBox="0 0 40 40"><path d="M8 32l8-12 6 8 5-7 9 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Industrial facility
+          </div>
+        </div>
+        <div class="hero-float-badge" style="bottom:20px;right:20px;">
+          <strong>AIHA-LAP</strong>
+          <span>Accredited Laboratory</span>
+        </div>
+        <div class="hero-float-badge" style="top:20px;right:320px;">
+          <strong style="color:var(--blue-400);">OSHA</strong>
+          <span>Defensible Reports</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TICKER ═══ -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="ticker-item">Air Sampling</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">Silica Monitoring</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">Noise Surveys</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">OSHA Compliance Audits</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">Respiratory Protection</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">Indoor Air Quality</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">HazMat Response</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">Vibration Assessments</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">Legionella Risk</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">Written Programs</span><span class="ticker-sep">·</span>
+    <!-- repeat for seamless -->
+    <span class="ticker-item">Air Sampling</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">Silica Monitoring</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">Noise Surveys</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">OSHA Compliance Audits</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">Respiratory Protection</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">Indoor Air Quality</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">HazMat Response</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">Vibration Assessments</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">Legionella Risk</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">Written Programs</span><span class="ticker-sep">·</span>
+  </div>
+</div>
+
+<!-- ═══ WHY CHOOSE ═══ -->
+<section class="section bg-mesh">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="text-center mb-12" data-reveal>
+      <span class="eyebrow">Why IH-FoA</span>
+      <h2>The IH-FoA Difference</h2>
+      <p style="max-width:520px;margin:14px auto 0;">Real field experience. AIHA-accredited lab support. Compliance-focused reporting that stands up to OSHA scrutiny.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card glass-card" data-reveal data-delay="1" style="padding:32px;">
+        <div class="why-icon">🔬</div>
+        <h4>AIHA-LAP Accredited Lab</h4>
+        <p>Full LOD/LOQ documentation with every report. Analytical results that meet the highest laboratory standards.</p>
+      </div>
+      <div class="why-card glass-card" data-reveal data-delay="2" style="padding:32px;">
+        <div class="why-icon green">⚡</div>
+        <h4>24–48 Hour Response</h4>
+        <p>Rapid deployment across Georgia and the Southeast. When you need compliance support, we're there fast.</p>
+      </div>
+      <div class="why-card glass-card" data-reveal data-delay="3" style="padding:32px;">
+        <div class="why-icon">📊</div>
+        <h4>OSHA Defensible Methods</h4>
+        <p>All sampling uses NIOSH/OSHA certified methods. Your reports will hold up to any regulatory review.</p>
+      </div>
+      <div class="why-card glass-card" data-reveal data-delay="4" style="padding:32px;">
+        <div class="why-icon green">🏭</div>
+        <h4>Manufacturing Expertise</h4>
+        <p>15+ years on real factory floors, warehouses, and construction sites. We've seen the hazards you face daily.</p>
+      </div>
+      <div class="why-card glass-card" data-reveal data-delay="5" style="padding:32px;">
+        <div class="why-icon">💬</div>
+        <h4>Direct Communication</h4>
+        <p>Fast turnaround. Plain-language findings. No middlemen, no jargon — just actionable recommendations.</p>
+      </div>
+      <div class="why-card glass-card" data-reveal data-delay="6" style="padding:32px;">
+        <div class="why-icon green">✅</div>
+        <h4>Practical Solutions</h4>
+        <p>We don't just report findings — we provide control strategies and written programs to fix what we find.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ OSHA READY ═══ -->
+<section class="section" style="background:white;">
+  <div class="container">
+    <div class="osha-layout">
+      <!-- Left: asymmetric images -->
+      <div class="osha-imgs" data-reveal="left">
+        <div class="osha-img-main">
+          <div class="img-ph img-ph-dark" style="height:100%;">
+            <svg width="52" height="52" fill="none" viewBox="0 0 52 52"><path d="M10 42l10-14 8 10 6-8 10 12" stroke="rgba(255,255,255,.3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="26" cy="18" r="8" stroke="rgba(255,255,255,.3)" stroke-width="2"/></svg>
+            <span>Field technician performing air sampling</span>
+            <span style="font-size:11px;">[ replace with real photo ]</span>
+          </div>
+        </div>
+        <div class="osha-img-sub">
+          <div class="img-ph" style="height:100%;">
+            <svg width="40" height="40" fill="none" viewBox="0 0 40 40"><rect x="6" y="8" width="28" height="24" rx="3" stroke="#94a3b8" stroke-width="1.5"/><path d="M12 16h16M12 20h12M12 24h8" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span>OSHA compliance documentation</span>
+          </div>
+        </div>
+        <div class="osha-img-float">
+          <strong><span data-count="24" data-suffix="–48">24–48</span></strong>
+          <span>Hour Onsite Response</span>
+        </div>
+      </div>
+
+      <!-- Right: copy -->
+      <div data-reveal="right">
+        <span class="eyebrow">Prepare Before OSHA Arrives</span>
+        <h2 style="margin-bottom:16px;">You're Not<br>OSHA-Ready.<br><span style="color:var(--blue-800);">We Make You Ready.</span></h2>
+        <p style="margin-bottom:24px;">If you haven't assessed your chemical exposure hazards in the last year, you have blind spots. We conduct the same assessment OSHA will — before they show up.</p>
+        <div class="service-checks">
+          <div class="service-check">Air Sampling &amp; Exposure Monitoring</div>
+          <div class="service-check">Silica, Metals, VOCs &amp; Combustible Dust</div>
+          <div class="service-check">Noise Surveys &amp; Dosimetry</div>
+          <div class="service-check">Mock OSHA Inspections</div>
+          <div class="service-check">Respiratory Protection Programs</div>
+          <div class="service-check">Written Compliance Programs</div>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-primary">Request an Assessment</a>
+          <a href="services.html" class="btn btn-outline-dark">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES OVERVIEW ═══ -->
+<section class="section bg-mesh">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="services-layout">
+      <div data-reveal="left">
+        <span class="eyebrow">Full-Range IH Services</span>
+        <h2 style="margin-bottom:16px;">Comprehensive<br>Exposure Monitoring<br>&amp; <span style="color:var(--green-700);">IH Consulting</span></h2>
+        <p style="margin-bottom:28px;">From initial air sampling to full written compliance programs — one partner for every occupational health challenge.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:32px;">
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--dark-2);">
+            <span style="color:var(--green-700);font-size:16px;font-weight:800;">✓</span> Air Sampling
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--dark-2);">
+            <span style="color:var(--green-700);font-size:16px;font-weight:800;">✓</span> Noise Surveys
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--dark-2);">
+            <span style="color:var(--green-700);font-size:16px;font-weight:800;">✓</span> Indoor Air Quality
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--dark-2);">
+            <span style="color:var(--green-700);font-size:16px;font-weight:800;">✓</span> OSHA Audits
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--dark-2);">
+            <span style="color:var(--green-700);font-size:16px;font-weight:800;">✓</span> Respiratory Testing
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--dark-2);">
+            <span style="color:var(--green-700);font-size:16px;font-weight:800;">✓</span> Legionella Risk
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--dark-2);">
+            <span style="color:var(--green-700);font-size:16px;font-weight:800;">✓</span> HazMat Response
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--dark-2);">
+            <span style="color:var(--green-700);font-size:16px;font-weight:800;">✓</span> Vibration Assessments
+          </div>
+        </div>
+        <a href="services.html" class="btn btn-primary">View All Services →</a>
+      </div>
+
+      <!-- Asymmetric image stack -->
+      <div class="services-imgs" data-reveal="right">
+        <div class="srv-img-a">
+          <div class="img-ph img-ph-dark" style="height:320px;">
+            <svg width="44" height="44" fill="none" viewBox="0 0 44 44"><path d="M6 38l10-14 8 10 6-9 10 13" stroke="rgba(255,255,255,.3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 16a8 8 0 100-16 8 8 0 000 16z" stroke="rgba(255,255,255,.3)" stroke-width="2"/></svg>
+            <span>Manufacturing floor inspection</span>
+          </div>
+        </div>
+        <div class="srv-img-b">
+          <div class="img-ph" style="height:240px;">
+            <svg width="36" height="36" fill="none" viewBox="0 0 36 36"><circle cx="18" cy="18" r="12" stroke="#94a3b8" stroke-width="1.5"/><path d="M18 10v8l5 3" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span>Lab results turnaround</span>
+          </div>
+        </div>
+        <div class="srv-img-c">
+          <div class="img-ph" style="height:120px;">
+            <svg width="28" height="28" fill="none" viewBox="0 0 28 28"><path d="M4 14h20M14 4v20" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span style="font-size:11px;">PPE check</span>
+          </div>
+        </div>
+        <div style="position:absolute;bottom:20px;left:10px;background:white;border-radius:10px;padding:12px 16px;box-shadow:var(--shadow);border-left:4px solid var(--blue-600);">
+          <strong style="display:block;font-size:20px;font-weight:800;color:var(--blue-900);">NIOSH</strong>
+          <span style="font-size:12px;color:var(--muted);">Certified Methods</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 3-STEP PROCESS ═══ -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="text-center mb-12" data-reveal>
+      <span class="eyebrow blue">How It Works</span>
+      <h2 class="text-white">From Concern to Compliance</h2>
+      <p style="color:rgba(255,255,255,.5);max-width:480px;margin:14px auto 0;">A straightforward process designed to minimize disruption and maximize regulatory certainty.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-item" data-reveal data-delay="1">
+        <div class="step-num">01</div>
+        <h4 class="text-white">Rapid Onsite Assessment</h4>
+        <p style="color:rgba(255,255,255,.5);">We deploy within 24–48 hours. Expert field technicians collect air, noise, and chemical samples using NIOSH/OSHA certified methods.</p>
+      </div>
+      <div class="step-item" data-reveal data-delay="2">
+        <div class="step-num" style="background:linear-gradient(135deg,var(--green-700),var(--green-900));">02</div>
+        <h4 class="text-white">OSHA-Defensible Reporting</h4>
+        <p style="color:rgba(255,255,255,.5);">Full analytical results with LOD/LOQ documentation. Clear, plain-language findings — ready for OSHA review if needed.</p>
+      </div>
+      <div class="step-item" data-reveal data-delay="3">
+        <div class="step-num">03</div>
+        <h4 class="text-white">Practical Recommendations</h4>
+        <p style="color:rgba(255,255,255,.5);">Actionable control strategies and written compliance programs to address every identified risk — not just a report to file away.</p>
+      </div>
+    </div>
+
+    <!-- Video placeholder -->
+    <div class="video-ph" style="height:320px;margin-top:60px;border-radius:var(--radius);overflow:hidden;" data-reveal>
+      <div class="vp-bg">
+        <div class="play-btn">▶</div>
+      </div>
+      <div class="vp-label">[ IH-FoA process overview video ]</div>
+      <div style="position:absolute;top:20px;left:20px;background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:8px 14px;">
+        <span style="color:rgba(255,255,255,.7);font-size:13px;">Watch: How We Work</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="section" style="background:white;">
+  <div class="container">
+    <div class="text-center mb-12" data-reveal>
+      <span class="eyebrow">Client Testimonials</span>
+      <h2>Trusted by Safety Leaders</h2>
+      <p style="max-width:480px;margin:14px auto 0;">Manufacturing, construction, and industrial clients across the Southeast trust IH-FoA for their most critical compliance needs.</p>
+    </div>
+    <div class="testi-track-wrap" data-reveal>
+      <div class="testi-track">
+        <div class="testi-card glass-card" style="padding:32px;">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">Fast, professional, and genuinely OSHA-defensible. IH-FoA had results back to us before our audit window closed. Exceptional turnaround.</p>
+          <div class="testi-who">
+            <strong>EHS Manager</strong>
+            <span>Manufacturing Facility, Georgia</span>
+          </div>
+        </div>
+        <div class="testi-card glass-card" style="padding:32px;">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">The air sampling reports included everything we needed for our respiratory protection program. Thorough, clearly communicated, and done right the first time.</p>
+          <div class="testi-who">
+            <strong>Safety Director</strong>
+            <span>Industrial Warehouse, Tennessee</span>
+          </div>
+        </div>
+        <div class="testi-card glass-card" style="padding:32px;">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">IH-FoA identified silica exposure risks our previous consultant missed entirely. Their practical recommendations made an immediate difference on the floor.</p>
+          <div class="testi-who">
+            <strong>Operations Manager</strong>
+            <span>Construction Firm, North Carolina</span>
+          </div>
+        </div>
+        <div class="testi-card glass-card" style="padding:32px;">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">When we had an occupant complaint about air quality, IH-FoA was onsite within 24 hours. Their IAQ assessment was comprehensive and gave our team confidence.</p>
+          <div class="testi-who">
+            <strong>Facilities Director</strong>
+            <span>Commercial Office Complex, Florida</span>
+          </div>
+        </div>
+        <div class="testi-card glass-card" style="padding:32px;">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">Professional, thorough noise survey with clear recommendations. We implemented their hearing conservation program recommendations and passed our next OSHA inspection.</p>
+          <div class="testi-who">
+            <strong>Plant Safety Coordinator</strong>
+            <span>Industrial Manufacturer, Alabama</span>
+          </div>
+        </div>
+        <div class="testi-card glass-card" style="padding:32px;">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">IH-FoA's written programs are actually usable — not just compliance documents that sit on a shelf. Real-world, practical, and clearly written for our team.</p>
+          <div class="testi-who">
+            <strong>HR &amp; Safety Manager</strong>
+            <span>Healthcare Facility, Virginia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-dots">
+      <div class="testi-dot active"></div>
+      <div class="testi-dot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BLOG PREVIEW ═══ -->
+<section class="section bg-light">
+  <div class="container">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;" data-reveal>
+      <div>
+        <span class="eyebrow">Latest Insights</span>
+        <h2>IH &amp; Compliance Resources</h2>
+      </div>
+      <a href="resources.html" class="btn btn-outline-dark">View All Posts →</a>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card" data-reveal data-delay="1">
+        <div class="blog-thumb">
+          <div class="img-ph" style="height:200px;border-radius:var(--radius) var(--radius) 0 0;">
+            <svg width="36" height="36" fill="none" viewBox="0 0 36 36"><path d="M4 28l8-10 6 8 5-7 9 9" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Silica dust blog photo</span>
+          </div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-tag">Silica Safety</div>
+          <h4>Understanding OSHA's Crystalline Silica Standard: What Manufacturers Need to Know</h4>
+          <p>A practical breakdown of PEL requirements, action levels, and how to implement a compliant exposure control plan.</p>
+          <div class="blog-meta">
+            <span>April 2026</span>
+            <span>·</span>
+            <span>6 min read</span>
+          </div>
+        </div>
+      </div>
+      <div class="blog-card" data-reveal data-delay="2">
+        <div class="blog-thumb">
+          <div class="img-ph" style="height:200px;border-radius:var(--radius) var(--radius) 0 0;">
+            <svg width="36" height="36" fill="none" viewBox="0 0 36 36"><circle cx="18" cy="18" r="10" stroke="#94a3b8" stroke-width="1.5"/><path d="M18 10v8l4 4" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span>Hearing protection blog photo</span>
+          </div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-tag">Noise &amp; Hearing</div>
+          <h4>When Is a Noise Survey Required? The Industrial Hygienist's Guide to OSHA 1910.95</h4>
+          <p>Dosimetry vs. area monitoring, action levels, and building a hearing conservation program that passes OSHA scrutiny.</p>
+          <div class="blog-meta">
+            <span>March 2026</span>
+            <span>·</span>
+            <span>8 min read</span>
+          </div>
+        </div>
+      </div>
+      <div class="blog-card" data-reveal data-delay="3">
+        <div class="blog-thumb">
+          <div class="img-ph" style="height:200px;border-radius:var(--radius) var(--radius) 0 0;">
+            <svg width="36" height="36" fill="none" viewBox="0 0 36 36"><rect x="6" y="8" width="24" height="20" rx="2" stroke="#94a3b8" stroke-width="1.5"/><path d="M12 14h12M12 19h8" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span>IAQ testing blog photo</span>
+          </div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-tag">Indoor Air Quality</div>
+          <h4>5 Signs Your Facility Has an Indoor Air Quality Problem (And What to Do)</h4>
+          <p>Occupant complaints, unexplained sick leave, and musty odors are all red flags. Here's the IH approach to diagnosing IAQ issues.</p>
+          <div class="blog-meta">
+            <span>February 2026</span>
+            <span>·</span>
+            <span>5 min read</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA BANNER ═══ -->
+<section class="section-sm" style="background:linear-gradient(135deg,var(--blue-900),var(--green-900));padding:64px 0;">
+  <div class="container text-center" data-reveal>
+    <h2 class="text-white" style="margin-bottom:12px;">Not sure where your biggest exposure risks are?</h2>
+    <p style="color:rgba(255,255,255,.6);margin-bottom:32px;font-size:18px;">We'll help you find out — in 24–48 hours.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-primary" style="font-size:16px;padding:14px 32px;">Talk to an Expert</a>
+      <a href="tel:6787403870" class="btn btn-outline" style="font-size:16px;padding:14px 32px;">(678) 740-3870</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT FORM ═══ -->
+<section class="section" id="contact" style="background:white;">
+  <div class="container">
+    <div class="contact-split">
+      <div class="contact-info" data-reveal="left">
+        <span class="eyebrow">Get in Touch</span>
+        <h2>Ready to Protect Your Workforce?</h2>
+        <p>Fill out the form and an IH-FoA consultant will respond within one business day. For urgent needs, call us directly.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📞</div>
+          <div class="contact-detail-text">
+            <strong>Phone</strong>
+            <span>(678) 740-3870</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✉️</div>
+          <div class="contact-detail-text">
+            <strong>Email</strong>
+            <span>info@ih-foa.com</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div class="contact-detail-text">
+            <strong>Address</strong>
+            <span>2500 Dallas Hwy, Suite 202-1275<br>Marietta, GA 30064</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🕐</div>
+          <div class="contact-detail-text">
+            <strong>Response Time</strong>
+            <span>Within 1 business day<br>24–48 hr onsite deployment</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal="right">
+        <div class="glass-card" style="padding:40px;">
+          <h3 style="margin-bottom:8px;">Send Us a Message</h3>
+          <p style="margin-bottom:28px;font-size:14px;">Tell us about your facility and we'll recommend the right services.</p>
+          <div class="form-grid">
+            <div class="form-field">
+              <label>Full Name *</label>
+              <input type="text" placeholder="Your name">
+            </div>
+            <div class="form-field">
+              <label>Email *</label>
+              <input type="email" placeholder="your@email.com">
+            </div>
+            <div class="form-field">
+              <label>Company</label>
+              <input type="text" placeholder="Company name">
+            </div>
+            <div class="form-field">
+              <label>Phone</label>
+              <input type="tel" placeholder="(000) 000-0000">
+            </div>
+            <div class="form-field full">
+              <label>Service Needed *</label>
+              <select>
+                <option value="">Select a service…</option>
+                <option>Air Sampling / Exposure Assessment</option>
+                <option>OSHA Compliance Audit</option>
+                <option>Noise Survey</option>
+                <option>Indoor Air Quality</option>
+                <option>Respiratory Protection Program</option>
+                <option>Written Programs / HazCom</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-field full">
+              <label>Message</label>
+              <textarea placeholder="Describe your facility, industry, and any specific concerns…"></textarea>
+            </div>
+          </div>
+          <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:20px;font-size:16px;padding:14px;">Send Message →</button>
+          <p style="font-size:12px;color:var(--muted);margin-top:12px;text-align:center;">By submitting, you agree to be contacted by an IH-FoA representative.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="images/IH_FOA.png" alt="IH/FoA Logo" style="height: 90px; width: auto;" /></div>
+        <p class="footer-tagline">Industrial Hygiene Forensics of Americus, LLC — Rapid Onsite Response. OSHA-Defensible Reporting. Manufacturing Expertise.</p>
+        <div class="footer-social" style="margin-top:20px;">
+          <a href="#">in</a>
+          <a href="#">tw</a>
+          <a href="#">fb</a>
+        </div>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html">Air Sampling</a></li>
+          <li><a href="services.html">Noise Surveys</a></li>
+          <li><a href="services.html">Indoor Air Quality</a></li>
+          <li><a href="services.html">OSHA Audits</a></li>
+          <li><a href="services.html">Respiratory Testing</a></li>
+          <li><a href="services.html">Written Programs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="coverage.html">Coverage Area</a></li>
+          <li><a href="resources.html">Blog &amp; News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:6787403870">(678) 740-3870</a></li>
+          <li><a href="mailto:info@ih-foa.com">info@ih-foa.com</a></li>
+          <li style="color:rgba(255,255,255,.35);font-size:13px;line-height:1.6;">2500 Dallas Hwy<br>Suite 202-1275<br>Marietta, GA 30064</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Industrial Hygiene Forensics of Americus, LLC · All rights reserved</span>
+      <span style="display:flex;gap:20px;"><a href="#" style="color:rgba(255,255,255,.3);">Privacy Policy</a><a href="#" style="color:rgba(255,255,255,.3);">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script>
+  // Remove all data-reveal hidden states immediately
+  document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('visible'));
+  // Auto-print once fonts + layout are ready
+  document.fonts.ready.then(() => setTimeout(() => window.print(), 500));
+</script>
+</body>
+</html>

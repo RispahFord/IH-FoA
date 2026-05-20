@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light only">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Industrial Hygiene Forensics of Americus — a Georgia-based IH firm delivering forensic-grade exposure assessments and practical compliance support to industrial facilities across the Southeast.">
+<title>About Us | IH-FoA</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="site.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yygg_vb.woff2" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=optional" onload="this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=optional" rel="stylesheet"></noscript>
+<style>
+.about-intro { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.about-imgs { position:relative; height:520px; }
+.about-img-main { position:absolute; top:0; left:0; width:72%; height:370px; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-lg); }
+.about-img-side { position:absolute; bottom:0; right:0; width:52%; height:280px; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-lg); border:4px solid white; }
+.about-img-badge { position:absolute; top:240px; right:calc(52% - 10px); background:white; border-radius:12px; padding:14px 18px; box-shadow:var(--shadow-lg); border-bottom:4px solid var(--green-500); }
+.about-img-badge strong { display:block; font-size:28px; font-weight:800; color:var(--blue-900); }
+.about-img-badge span { font-size:12px; color:var(--muted); }
+
+.mission-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.mission-card { padding:36px 28px; border-radius:var(--radius); text-align:center; }
+.mission-icon { font-size:36px; margin-bottom:16px; }
+.mission-card h4 { font-size:19px; font-weight:700; margin-bottom:10px; color:#2B5C2E; }
+.mission-card p { font-size:14px; color:#1a2a1b; }
+
+.cred-list { display:flex; flex-direction:column; gap:16px; }
+.cred-item { display:flex; align-items:flex-start; gap:16px; padding:20px 24px; background:white; border-radius:10px; border:1px solid #e2e8f0; box-shadow:0 2px 8px rgba(0,0,0,.04); }
+.cred-dot { width:12px; height:12px; border-radius:50%; background:linear-gradient(135deg,var(--blue-600),var(--green-500)); flex-shrink:0; margin-top:4px; }
+.cred-item strong { font-size:15px; font-weight:700; display:block; color:var(--dark-2); }
+.cred-item span { font-size:13px; color:var(--muted); }
+
+.team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+.team-card { border-radius:var(--radius); overflow:hidden; background:white; box-shadow:0 2px 16px rgba(0,0,0,.07); transition:var(--transition); }
+.team-card:hover { transform:translateY(-6px); box-shadow:var(--shadow); }
+.team-photo { height:240px; }
+.team-body { padding:22px; }
+.team-body h4 { font-size:17px; font-weight:700; color:var(--dark-2); }
+.team-body .role { font-size:13px; color:var(--blue-800); font-weight:600; margin:4px 0 10px; }
+.team-body p { font-size:13px; color:var(--muted); }
+
+.timeline { position:relative; padding-left:32px; }
+.timeline::before { display: none; }
+.timeline-item { position:relative; margin-bottom:40px; }
+.timeline-dot { position:absolute; left:-28px; top:4px; width:16px; height:16px; border-radius:50%; background:white; border:3px solid var(--blue-600); box-shadow:0 0 0 4px rgba(37,99,235,.12); }
+.timeline-item h4 { font-size:17px; font-weight:700; margin-bottom:6px; color:var(--dark-2); }
+.timeline-item .year { font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--green-700); margin-bottom:6px; }
+.timeline-item p { font-size:14px; color:var(--muted); }
+</style>
+
+<!-- ═══════ NAV WHITE PROTOTYPE ═══════ -->
+<style>
+#site-nav {
+  background: #ffffff !important;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+}
+#site-nav.scrolled {
+  background: rgba(255,255,255,0.78) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.08), 0 4px 24px rgba(0,0,0,0.08) !important;
+}
+#site-nav .nav-inner {
+  display: flex !important;
+  align-items: center !important;
+}
+#site-nav .nav-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 36px !important;
+  flex: 1 !important;
+  justify-content: center !important;
+  margin: 0 24px !important;
+}
+#site-nav .nav-cta {
+  display: flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+}
+#site-nav .nav-links a {
+  color: var(--forest) !important;
+}
+#site-nav .nav-links a:hover,
+#site-nav .nav-links a.active {
+  color: #1e4221 !important;
+}
+#site-nav .nav-links a::after {
+  background: var(--forest) !important;
+}
+#site-nav .nav-logo img {
+  filter: none !important;
+}
+
+/* ── Mobile: restore hamburger, hide desktop links ── */
+@media (max-width: 900px) {
+  #site-nav .nav-links {
+    display: none !important;
+  }
+  #site-nav .nav-cta {
+    display: none !important;
+  }
+  .mobile-toggle {
+    display: block !important;
+  }
+  .mobile-toggle span {
+    background: #2B5C2E !important;
+  }
+  .mobile-toggle.open span {
+    background: #2B5C2E !important;
+  }
+}
+nav .nav-logo::after,
+nav .nav-cta a::after {
+  display: none !important;
+}
+nav .nav-logo {
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+nav .nav-logo:hover {
+  transform: translateY(-2px);
+  opacity: 0.85;
+}
+</style>
+</head>
+<body>
+<nav id="site-nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <picture>
+        <source srcset="images/ih-foa-logo-landscape.webp" type="image/webp">
+        <img src="images/ih-foa-logo-landscape.png" alt="IH-FoA Logo" width="160" height="36" fetchpriority="high" style="height:36px;width:auto;display:block;object-fit:contain;">
+      </picture>
+    </a>
+    <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links">
+      <a href="about.html" class="active">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="coverage.html">Coverage</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="nav-cta">
+      <a href="tel:6787403870" class="btn">Talk to an Expert</a>
+    </div>
+  </div>
+  <div class="mobile-menu">
+    <div class="mobile-menu-inner">
+    <div class="mobile-menu-brand">
+      <a href="index.html">
+        <img src="images/ih-foa-logo-white.svg" alt="IH-FoA Home" style="height:72px;width:auto;display:block;margin:0 auto;">
+      </a>
+    </div>
+      <div class="mobile-nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="coverage.html">Coverage</a>
+        <a href="resources.html">Resources</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div class="mobile-nav-cta">
+        <a href="tel:6787403870" class="btn btn-green">Talk to an Expert</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><strong>About Us</strong></div>
+    <h1>Built on Practical Experience</h1>
+    <p>A team of qualified and experienced staff supporting industrial and commercial operations with reliable exposure assessments and compliance guidance.</p>
+  </div>
+</div>
+
+<!-- ABOUT INTRO -->
+<section class="section" style="background:white;">
+  <div class="container">
+    <div class="about-intro">
+      <div class="about-imgs" data-reveal="left">
+        <div class="about-img-main">
+          <img loading="lazy" src="images/about-team.webp" alt="IH-FoA team photo" style="width:100%; height:100%; object-fit:cover; border-radius:inherit;">
+        </div>
+        <div class="about-img-side">
+          <img loading="lazy" src="images/about-facility.webp" alt="Lab / field work" style="width:100%; height:100%; object-fit:cover; border-radius:inherit;">
+        </div>
+        <div class="about-img-badge">
+          <strong>AIHA-LAP</strong>
+          <span>Accredited Laboratory</span>
+        </div>
+      </div>
+      <div data-reveal="right">
+        <span class="eyebrow">Who We Are</span>
+        <h2 style="margin-bottom:16px;">Industrial Hygiene Forensics of Americus, LLC</h2>
+        <p style="margin-bottom:16px;">IH-FoA was established to provide industrial hygiene services that are both technically sound and practically useful.</p>
+        <p style="margin-bottom:16px;">With experience in industrial and commercial environments, the team understands the balance between compliance requirements and operational realities. The focus is always the same: deliver accurate findings, communicate them clearly, and support the next step.</p>
+        <p style="margin-bottom:16px;">IH-FoA works alongside clients as a dependable partner, providing clarity where it's needed and consistency you can rely on.</p>
+        <p style="margin-bottom:24px;">At Industrial Hygiene Forensics of Americus (IH-FoA) LLC, we understand the importance of protecting your workforce, contractors and customers from occupational health hazards and illnesses; work that critically supports both compliance and day-to-day operations.</p>
+        <div style="display:flex;gap:40px;padding:24px;background:var(--light);border-radius:var(--radius);margin-bottom:28px;">
+          <div class="text-center">
+            <div style="font-size:36px;font-weight:800;color:var(--dark-2);" data-count="15" data-suffix="+">15+</div>
+            <div style="font-size:13px;color:var(--muted);">Years in the Field</div>
+          </div>
+          <div class="text-center">
+            <div style="font-size:36px;font-weight:800;color:var(--dark-2);" data-count="12" data-suffix="">12</div>
+            <div style="font-size:13px;color:var(--muted);">States Served</div>
+          </div>
+          <div class="text-center">
+            <div style="font-size:36px;font-weight:800;color:var(--dark-2);" data-count="100" data-suffix="%">100%</div>
+            <div style="font-size:13px;color:var(--muted);">OSHA Defensible</div>
+          </div>
+        </div>
+        <a href="contact.html" class="btn btn-primary">Work With Us →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="text-center mb-12" data-reveal>
+      <span class="eyebrow blue">Our Mission</span>
+      <h2 style="color:var(--dark-2);">What Drives Us</h2>
+      <p style="color:#2B5C2E;max-width:520px;margin:14px auto 0;">We exist to protect workers from invisible hazards, the ones that don't show up until it's too late.</p>
+    </div>
+    <div class="mission-grid">
+      <div class="mission-card glass-card-dark" data-reveal data-delay="1">
+        <div class="mission-icon">🛡️</div>
+        <h3>Worker Protection</h3>
+        <p>Every assessment we conduct is rooted in a single goal: protecting workers from occupational health hazards before they cause harm.</p>
+      </div>
+      <div class="mission-card glass-card-dark" data-reveal data-delay="2">
+        <div class="mission-icon">🔍</div>
+        <h3>Forensic Precision</h3>
+        <p>We approach every exposure assessment with the rigor of a forensic investigation: detailed, methodical, and defensible.</p>
+      </div>
+      <div class="mission-card glass-card-dark" data-reveal data-delay="3">
+        <div class="mission-icon">📈</div>
+        <h3>Practical Compliance</h3>
+        <p>Compliance isn't about paperwork. It's about real change on the facility floor. We bridge the gap between findings and solutions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="section bg-mesh">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="grid-2">
+      <div data-reveal="left">
+        <span class="eyebrow">Credentials &amp; Expertise</span>
+        <h2 style="margin-bottom:24px;">Certifications That Matter</h2>
+        <div class="cred-list">
+          <div class="cred-item">
+            <div class="cred-dot"></div>
+            <div><strong>AIHA-LAP Accredited Laboratory Support</strong><span>Analytical results meeting the highest professional standards with complete documentation</span></div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-dot"></div>
+            <div><strong>NIOSH/OSHA Certified Sampling Methods</strong><span>All sampling conducted per OSHA and NIOSH standard methodologies</span></div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-dot"></div>
+            <div><strong>15+ Years Manufacturing EHS Leadership</strong><span>Hands-on experience in the industries we serve, not just consulting credentials</span></div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-dot"></div>
+            <div><strong>Full LOD/LOQ Documentation</strong><span>Every report includes limits of detection and quantification for complete analytical transparency</span></div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-dot"></div>
+            <div><strong>Professional Liability Insurance</strong><span>Fully insured for occupational and environmental consulting services</span></div>
+          </div>
+        </div>
+      </div>
+      <div data-reveal="right">
+        <span class="eyebrow">Our Journey</span>
+        <h2 style="margin-bottom:24px;">IH-FoA Timeline</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="year">2008</div>
+            <h3>Manufacturing EHS Career Begins</h3>
+            <p>15+ years of hands-on industrial hygiene work in Southeast manufacturing environments, the foundation of IH-FoA's expertise.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="year">2020</div>
+            <h3>IH-FoA LLC Founded</h3>
+            <p>Industrial Hygiene Forensics of Americus, LLC established to bring forensic-level IH expertise to the Southeast's underserved industrial sector.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="year">2022</div>
+            <h3>Southeast Expansion</h3>
+            <p>Service area expanded to 12 states, serving manufacturing, construction, healthcare, and commercial clients from Georgia to Virginia.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="year">2024</div>
+            <h3>AIHA-LAP Lab Partnership</h3>
+            <p>Formalized analytical support through AIHA-LAP accredited laboratory, elevating the quality and defensibility of all IH-FoA reporting.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-sm" style="background:linear-gradient(135deg,var(--blue-900),var(--green-900));padding:64px 0;">
+  <div class="container text-center" data-reveal>
+    <h2 class="text-white" style="margin-bottom:12px;">Ready to work with IH-FoA?</h2>
+    <p style="color:rgba(255,255,255,.6);margin-bottom:32px;">Schedule a discovery call or request an onsite assessment today.</p>
+    <a href="contact.html" class="btn btn-primary" style="font-size:16px;padding:14px 32px;">Get in Touch →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div style="align-self: flex-start;"><div class="footer-logo"><a href="index.html"><img src="images/IH_FOA.png" alt="IH/FoA Logo" style="height: 120px; width: auto;" /></a></div><div class="footer-social" style="margin-top:20px;"><a href="https://www.linkedin.com/company/industrial-hygiene-forensics-of-americus/" target="_blank" rel="noopener noreferrer" aria-label="IH-FoA on LinkedIn"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div><p style="color: rgba(255,255,255,0.6); font-size: 13px; margin-top:10px;">Expert Industrial Hygiene — Georgia &amp; Southeast</p></div>
+      <div><p class="footer-col-head">Services</p><ul><li><a href="services.html">Air Sampling</a></li><li><a href="services.html">Noise Surveys</a></li><li><a href="services.html">Indoor Air Quality</a></li><li><a href="services.html">Mock OSHA Audits</a></li><li><a href="services.html">Respiratory Testing</a></li><li><a href="services.html">Written Programs</a></li></ul></div>
+      <div><p class="footer-col-head">Company</p><ul><li><a href="about.html">About Us</a></li><li><a href="coverage.html">Coverage</a></li><li><a href="resources.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><p class="footer-col-head">Contact</p><ul><li><a href="tel:6787403870">Call Us</a></li><li><a href="mailto:info@ih-foa.com">info@ih-foa.com</a></li><li style="color:rgba(255,255,255,.65);font-size:13px;">Marietta, GA 30064</li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span style="color: rgba(255,255,255,0.6);">© 2026 Industrial Hygiene Forensics of Americus, LLC · All rights reserved</span>
+      <a href="http://redolense.com" target="_blank" rel="noopener noreferrer" class="redolens-credit" aria-label="Crafted by Redolense">
+        <span class="redolens-prefix">Crafted by</span>
+        <span class="redolens-name">Redolense</span>
+      </a>
+    </div>
+  </div>
+</footer>
+<script src="site.js" defer></script>
+
+<!-- ── Back to top ── -->
+<button id="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+</body>
+</html>
