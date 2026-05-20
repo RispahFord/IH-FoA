@@ -300,7 +300,7 @@ document.getElementById('newsletter-form').addEventListener('submit', function(e
   const form = this;
   const name = document.getElementById('newsletter-name').value.trim();
   const email = document.getElementById('newsletter-email').value.trim();
-  fetch('/', {
+  fetch('/.netlify/functions/subscribe', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({ 'form-name': 'newsletter', 'name': name, 'email': email }).toString()
