@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.35 28.35">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #296740;
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g id="_Grid_Repeat_" data-name="&amp;lt;Grid Repeat&amp;gt;">
+      <circle class="cls-2" cx="14.17" cy="14.17" r="14.17"/>
+    </g>
+    <path class="cls-1" d="M20.32,7.12c-1.13.72-2.26,1.08-3.37,1.08s-2.04-.36-2.76-1.03c-.72.67-1.66,1.03-2.76,1.03s-2.24-.36-3.39-1.08c-.5.48-.96,1.13-1.35,1.93-.48,1.03-.72,2.14-.72,3.27,0,3.1.77,5.73,2.31,7.86,1.47,2.04,3.44,3.37,5.92,3.95,2.45-.58,4.43-1.9,5.89-3.95,1.54-2.14,2.31-4.76,2.31-7.86,0-1.13-.24-2.24-.72-3.27-.39-.79-.82-1.45-1.35-1.93h0Z"/>
+  </g>
+</svg>

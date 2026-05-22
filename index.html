@@ -382,6 +382,44 @@ nav .btn:hover {
   50% { left: 120%; }
   100% { left: 120%; }
 }
+
+/* ── WHY-ICON: remove container, plain icon on white ── */
+.why-icon,
+.why-icon.green {
+  background: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 16px !important;
+  color: #296740 !important;
+}
+.why-icon img,
+.why-icon.green img {
+  display: block;
+  width: 48px !important;
+  height: 48px !important;
+  color: #296740;
+}
+
+/* ── WHY-CARDS: centre-align icons + text ── */
+.why-card {
+  text-align: left !important;
+}
+.why-icon,
+.why-icon.green {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
 </style>
 
 <!-- ═══════ NAV WHITE PROTOTYPE — index.html only ═══════ -->
@@ -796,15 +834,15 @@ nav .btn:hover {
       <div data-reveal="right">
         <div style="display:flex;flex-direction:column;gap:16px;">
           <div style="display:flex;align-items:flex-start;gap:16px;padding:20px 24px;background:var(--light);border-radius:var(--radius);border-left:4px solid var(--forest);">
-            <div style="font-size:22px;flex-shrink:0;">🎯</div>
+            <div style="font-size:22px;flex-shrink:0;"><img src="icons/icon-target.svg" alt="" width="56" height="56" style="display:inline-block;vertical-align:middle;color:#296740;" aria-hidden="true"></div>
             <div><strong style="display:block;margin-bottom:4px;color:var(--dark-2);">Accurate Exposure Assessments</strong><span style="font-size:14px;color:var(--muted);">Air sampling, noise surveys, and chemical monitoring using established NIOSH/OSHA methods.</span></div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:16px;padding:20px 24px;background:var(--light);border-radius:var(--radius);border-left:4px solid var(--forest);">
-            <div style="font-size:22px;flex-shrink:0;">📋</div>
+            <div style="font-size:22px;flex-shrink:0;"><img src="icons/icon-clipboard.svg" alt="" width="56" height="56" style="display:inline-block;vertical-align:middle;color:#296740;" aria-hidden="true"></div>
             <div><strong style="display:block;margin-bottom:4px;color:var(--dark-2);">Clear, Defensible Reporting</strong><span style="font-size:14px;color:var(--muted);">Findings communicated plainly, documented thoroughly, and structured for any regulatory review.</span></div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:16px;padding:20px 24px;background:var(--light);border-radius:var(--radius);border-left:4px solid var(--forest);">
-            <div style="font-size:22px;flex-shrink:0;">✅</div>
+            <div style="font-size:22px;flex-shrink:0;"><img src="icons/icon-check.svg" alt="" width="56" height="56" style="display:inline-block;vertical-align:middle;color:#296740;" aria-hidden="true"></div>
             <div><strong style="display:block;margin-bottom:4px;color:var(--dark-2);">Practical Compliance Support</strong><span style="font-size:14px;color:var(--muted);">Control strategies and written programs built around what's workable in your operation.</span></div>
           </div>
         </div>
@@ -823,32 +861,32 @@ nav .btn:hover {
     </div>
     <div class="why-grid">
       <div class="why-card glass-card" data-reveal="" data-delay="1" style="padding:32px;">
-        <div class="why-icon">🔬</div>
+        <div class="why-icon"><img src="icons/icon-microscope.svg" alt="" width="56" height="56" style="display:inline-block;vertical-align:middle;color:#296740;" aria-hidden="true"></div>
         <h3>AIHA-LAP Accredited Lab Support</h3>
         <p>Full LOD/LOQ documentation with every report. Analytical results meeting the highest professional standards, with complete documentation.</p>
       </div>
       <div class="why-card glass-card" data-reveal="" data-delay="2" style="padding:32px;">
-        <div class="why-icon green">⚡</div>
+        <div class="why-icon green"><img src="icons/icon-lightning.svg" alt="" width="56" height="56" style="display:inline-block;vertical-align:middle;color:#296740;" aria-hidden="true"></div>
         <h3>Timely Response When Issues Arise</h3>
         <p>When a concern surfaces, we move quickly. Onsite deployment within 24–48 hours across Georgia and the Southeast.</p>
       </div>
       <div class="why-card glass-card" data-reveal="" data-delay="3" style="padding:32px;">
-        <div class="why-icon">📊</div>
+        <div class="why-icon"><img src="icons/icon-chart.svg" alt="" width="56" height="56" style="display:inline-block;vertical-align:middle;color:#296740;" aria-hidden="true"></div>
         <h3>Established Sampling Methodologies</h3>
         <p>All sampling conducted per NIOSH and OSHA standard methods. Your reports are structured for regulatory review from the start.</p>
       </div>
       <div class="why-card glass-card" data-reveal="" data-delay="4" style="padding:32px;">
-        <div class="why-icon green">🏭</div>
+        <div class="why-icon green"><img src="icons/icon-factory.svg" alt="" width="56" height="56" style="display:inline-block;vertical-align:middle;color:#296740;" aria-hidden="true"></div>
         <h3>Experience in Industrial Environments</h3>
         <p>We work in the facilities and sectors we assess: manufacturing, construction, healthcare, and commercial operations.</p>
       </div>
       <div class="why-card glass-card" data-reveal="" data-delay="5" style="padding:32px;">
-        <div class="why-icon">📋</div>
+        <div class="why-icon"><img src="icons/icon-clipboard.svg" alt="" width="56" height="56" style="display:inline-block;vertical-align:middle;color:#296740;" aria-hidden="true"></div>
         <h3>Clear Regulatory Documentation</h3>
         <p>Every report is structured for transparency, with findings clearly communicated and aligned with what regulators expect to see.</p>
       </div>
       <div class="why-card glass-card" data-reveal="" data-delay="6" style="padding:32px;">
-        <div class="why-icon green">✅</div>
+        <div class="why-icon green"><img src="icons/icon-check.svg" alt="" width="56" height="56" style="display:inline-block;vertical-align:middle;color:#296740;" aria-hidden="true"></div>
         <h3>Recommendations That Are Practical</h3>
         <p>Control strategies and written programs built around what's actually workable in your facility, not just a report to file away.</p>
       </div>
@@ -1120,28 +1158,28 @@ nav .btn:hover {
         <h2>Ready to Protect Your Workforce?</h2>
         <p>Fill out the form and an IH-FoA consultant will respond within one business day. For urgent needs, call us directly.</p>
         <div class="contact-detail">
-          <div class="contact-detail-icon">📞</div>
+          <div class="contact-detail-icon"><img src="icons/icon-phone.svg" alt="" width="32" height="32" style="display:inline-block;vertical-align:middle;color:#ffffff;" aria-hidden="true"></div>
           <div class="contact-detail-text">
             <strong>Phone</strong>
             <span>Call Now</span>
           </div>
         </div>
         <div class="contact-detail">
-          <div class="contact-detail-icon">✉️</div>
+          <div class="contact-detail-icon"><img src="icons/icon-email.svg" alt="" width="32" height="32" style="display:inline-block;vertical-align:middle;color:#ffffff;" aria-hidden="true"></div>
           <div class="contact-detail-text">
             <strong>Email</strong>
             <span>info@ih-foa.com</span>
           </div>
         </div>
         <div class="contact-detail">
-          <div class="contact-detail-icon">📍</div>
+          <div class="contact-detail-icon"><img src="icons/icon-location.svg" alt="" width="32" height="32" style="display:inline-block;vertical-align:middle;color:#ffffff;" aria-hidden="true"></div>
           <div class="contact-detail-text">
             <strong>Address</strong>
             <span>2500 Dallas Hwy, Suite 202-1275<br>Marietta, GA 30064</span>
           </div>
         </div>
         <div class="contact-detail">
-          <div class="contact-detail-icon">🕐</div>
+          <div class="contact-detail-icon"><img src="icons/icon-clock.svg" alt="" width="32" height="32" style="display:inline-block;vertical-align:middle;color:#ffffff;" aria-hidden="true"></div>
           <div class="contact-detail-text">
             <strong>Response Time</strong>
             <span>Within 1 business day<br>24–48 hr onsite deployment</span>
