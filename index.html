@@ -1,4 +1,12 @@
 <!DOCTYPE html><html lang="en" style="--blue-800: #2B5C2E; --green-700: #2B5C2E; --forest: #2B5C2E; --forest-dark: #1e4221;"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EFTRFYF4YJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EFTRFYF4YJ');
+</script>
 
 
 <meta charset="UTF-8">
@@ -373,6 +381,44 @@ nav .btn:hover {
   0% { left: -80%; }
   50% { left: 120%; }
   100% { left: 120%; }
+}
+
+/* ── WHY-ICON: remove container, plain icon on white ── */
+.why-icon,
+.why-icon.green {
+  background: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 16px !important;
+  color: #296740 !important;
+}
+.why-icon img,
+.why-icon.green img {
+  display: block;
+  width: 48px !important;
+  height: 48px !important;
+  color: #296740;
+}
+
+/* ── WHY-CARDS: centre-align icons + text ── */
+.why-card {
+  text-align: left !important;
+}
+.why-icon,
+.why-icon.green {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
 }
 </style>
 
@@ -788,15 +834,15 @@ nav .btn:hover {
       <div data-reveal="right">
         <div style="display:flex;flex-direction:column;gap:16px;">
           <div style="display:flex;align-items:flex-start;gap:16px;padding:20px 24px;background:var(--light);border-radius:var(--radius);border-left:4px solid var(--forest);">
-            <div style="font-size:22px;flex-shrink:0;">🎯</div>
+            <div style="font-size:22px;flex-shrink:0;"><img src="icons/icon-target.svg" alt="" width="56" height="56" style="display:inline-block;vertical-align:middle;color:#296740;" aria-hidden="true"></div>
             <div><strong style="display:block;margin-bottom:4px;color:var(--dark-2);">Accurate Exposure Assessments</strong><span style="font-size:14px;color:var(--muted);">Air sampling, noise surveys, and chemical monitoring using established NIOSH/OSHA methods.</span></div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:16px;padding:20px 24px;background:var(--light);border-radius:var(--radius);border-left:4px solid var(--forest);">
-            <div style="font-size:22px;flex-shrink:0;">📋</div>
+            <div style="font-size:22px;flex-shrink:0;"><img src="icons/icon-clipboard.svg" alt="" width="56" height="56" style="display:inline-block;vertical-align:middle;color:#296740;" aria-hidden="true"></div>
             <div><strong style="display:block;margin-bottom:4px;color:var(--dark-2);">Clear, Defensible Reporting</strong><span style="font-size:14px;color:var(--muted);">Findings communicated plainly, documented thoroughly, and structured for any regulatory review.</span></div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:16px;padding:20px 24px;background:var(--light);border-radius:var(--radius);border-left:4px solid var(--forest);">
-            <div style="font-size:22px;flex-shrink:0;">✅</div>
+            <div style="font-size:22px;flex-shrink:0;"><img src="icons/icon-check.svg" alt="" width="56" height="56" style="display:inline-block;vertical-align:middle;color:#296740;" aria-hidden="true"></div>
             <div><strong style="display:block;margin-bottom:4px;color:var(--dark-2);">Practical Compliance Support</strong><span style="font-size:14px;color:var(--muted);">Control strategies and written programs built around what's workable in your operation.</span></div>
           </div>
         </div>
@@ -815,32 +861,32 @@ nav .btn:hover {
     </div>
     <div class="why-grid">
       <div class="why-card glass-card" data-reveal="" data-delay="1" style="padding:32px;">
-        <div class="why-icon">🔬</div>
+        <div class="why-icon"><img src="icons/icon-microscope.svg" alt="" width="56" height="56" style="display:inline-block;vertical-align:middle;color:#296740;" aria-hidden="true"></div>
         <h3>AIHA-LAP Accredited Lab Support</h3>
         <p>Full LOD/LOQ documentation with every report. Analytical results meeting the highest professional standards, with complete documentation.</p>
       </div>
       <div class="why-card glass-card" data-reveal="" data-delay="2" style="padding:32px;">
-        <div class="why-icon green">⚡</div>
+        <div class="why-icon green"><img src="icons/icon-lightning.svg" alt="" width="56" height="56" style="display:inline-block;vertical-align:middle;color:#296740;" aria-hidden="true"></div>
         <h3>Timely Response When Issues Arise</h3>
         <p>When a concern surfaces, we move quickly. Onsite deployment within 24–48 hours across Georgia and the Southeast.</p>
       </div>
       <div class="why-card glass-card" data-reveal="" data-delay="3" style="padding:32px;">
-        <div class="why-icon">📊</div>
+        <div class="why-icon"><img src="icons/icon-chart.svg" alt="" width="56" height="56" style="display:inline-block;vertical-align:middle;color:#296740;" aria-hidden="true"></div>
         <h3>Established Sampling Methodologies</h3>
         <p>All sampling conducted per NIOSH and OSHA standard methods. Your reports are structured for regulatory review from the start.</p>
       </div>
       <div class="why-card glass-card" data-reveal="" data-delay="4" style="padding:32px;">
-        <div class="why-icon green">🏭</div>
+        <div class="why-icon green"><img src="icons/icon-factory.svg" alt="" width="56" height="56" style="display:inline-block;vertical-align:middle;color:#296740;" aria-hidden="true"></div>
         <h3>Experience in Industrial Environments</h3>
         <p>We work in the facilities and sectors we assess: manufacturing, construction, healthcare, and commercial operations.</p>
       </div>
       <div class="why-card glass-card" data-reveal="" data-delay="5" style="padding:32px;">
-        <div class="why-icon">📋</div>
+        <div class="why-icon"><img src="icons/icon-clipboard.svg" alt="" width="56" height="56" style="display:inline-block;vertical-align:middle;color:#296740;" aria-hidden="true"></div>
         <h3>Clear Regulatory Documentation</h3>
         <p>Every report is structured for transparency, with findings clearly communicated and aligned with what regulators expect to see.</p>
       </div>
       <div class="why-card glass-card" data-reveal="" data-delay="6" style="padding:32px;">
-        <div class="why-icon green">✅</div>
+        <div class="why-icon green"><img src="icons/icon-check.svg" alt="" width="56" height="56" style="display:inline-block;vertical-align:middle;color:#296740;" aria-hidden="true"></div>
         <h3>Recommendations That Are Practical</h3>
         <p>Control strategies and written programs built around what's actually workable in your facility, not just a report to file away.</p>
       </div>
@@ -1012,10 +1058,10 @@ nav .btn:hover {
         </div>
         <div class="testi-card glass-card" style="padding:32px;">
           <div class="testi-stars">★★★★★</div>
-          <p class="testi-quote">As a small manufacturer, I needed someone who could assess our VOC and fume exposure without overcomplicating the process. IH-FoA was straightforward, professional, and gave us a compliance roadmap we could actually follow. Worth every penny.</p>
+          <p class="testi-quote">IH-FoA mapped our entire facility for noise — area monitoring and personal dosimetry on key operators. We finally had numbers we could act on. Hearing conservation program is now fully in place.</p>
           <div class="testi-who">
-            <strong>Malte, Business Owner</strong>
-            <span>Plastic Injection Molding, Doraville, GA</span>
+            <strong>Malte, Facility Manager</strong>
+            <span>Light Manufacturing, Doraville, GA</span>
           </div>
         </div>
         <div class="testi-card glass-card" style="padding:32px;">
@@ -1112,28 +1158,28 @@ nav .btn:hover {
         <h2>Ready to Protect Your Workforce?</h2>
         <p>Fill out the form and an IH-FoA consultant will respond within one business day. For urgent needs, call us directly.</p>
         <div class="contact-detail">
-          <div class="contact-detail-icon">📞</div>
+          <div class="contact-detail-icon"><img src="icons/icon-phone.svg" alt="" width="32" height="32" style="display:inline-block;vertical-align:middle;color:#ffffff;" aria-hidden="true"></div>
           <div class="contact-detail-text">
             <strong>Phone</strong>
-            <span>Call Now</span>
+            <span><a href="tel:6787403870" style="color:inherit;text-decoration:none;">Call Now</a></span>
           </div>
         </div>
         <div class="contact-detail">
-          <div class="contact-detail-icon">✉️</div>
+          <div class="contact-detail-icon"><img src="icons/icon-email.svg" alt="" width="32" height="32" style="display:inline-block;vertical-align:middle;color:#ffffff;" aria-hidden="true"></div>
           <div class="contact-detail-text">
             <strong>Email</strong>
             <span>info@ih-foa.com</span>
           </div>
         </div>
         <div class="contact-detail">
-          <div class="contact-detail-icon">📍</div>
+          <div class="contact-detail-icon"><img src="icons/icon-location.svg" alt="" width="32" height="32" style="display:inline-block;vertical-align:middle;color:#ffffff;" aria-hidden="true"></div>
           <div class="contact-detail-text">
             <strong>Address</strong>
             <span>2500 Dallas Hwy, Suite 202-1275<br>Marietta, GA 30064</span>
           </div>
         </div>
         <div class="contact-detail">
-          <div class="contact-detail-icon">🕐</div>
+          <div class="contact-detail-icon"><img src="icons/icon-clock.svg" alt="" width="32" height="32" style="display:inline-block;vertical-align:middle;color:#ffffff;" aria-hidden="true"></div>
           <div class="contact-detail-text">
             <strong>Response Time</strong>
             <span>Within 1 business day<br>24–48 hr onsite deployment</span>
@@ -1143,50 +1189,56 @@ nav .btn:hover {
 
       <div data-reveal="right">
         <div class="glass-card" style="padding:40px;">
-          <h3 style="margin-bottom:8px;">Send Us a Message</h3>
-          <p style="margin-bottom:28px;font-size:14px;">Tell us about your facility and we'll recommend the right services.</p>
-          <form name="index-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="index-contact-form">
-            <input type="hidden" name="form-name" value="index-contact">
-            <input type="hidden" name="bot-field" style="display:none;">
-          <div class="form-grid">
-            <div class="form-field">
-              <label>Full Name *</label>
-              <input type="text" name="full-name" placeholder="Your name">
-            </div>
-            <div class="form-field">
-              <label>Email *</label>
-              <input type="email" name="email" placeholder="your@email.com" id="idx-email">
-            </div>
-            <div class="form-field">
-              <label>Company</label>
-              <input type="text" name="company" placeholder="Company name">
-            </div>
-            <div class="form-field">
-              <label>Phone</label>
-              <input type="tel" name="phone" placeholder="(000) 000-0000">
-            </div>
-            <div class="form-field full">
-              <label>Service Needed *</label>
-              <select name="service">
-                <option value="">Select a service…</option>
-                <option>Air Sampling / Exposure Assessment</option>
-                <option>OSHA Compliance Audit</option>
-                <option>Noise Survey</option>
-                <option>Indoor Air Quality</option>
-                <option>Respiratory Protection Program</option>
-                <option>Written Programs / HazCom</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="form-field full">
-              <label>Message</label>
-              <textarea name="message" placeholder="Describe your facility, industry, and any specific concerns…"></textarea>
-            </div>
+          <div id="index-contact-form">
+            <h3 style="margin-bottom:8px;">Send Us a Message</h3>
+            <p style="margin-bottom:28px;font-size:14px;">Tell us about your facility and we'll recommend the right services.</p>
+            <form name="contact-home" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="netlify-home-form">
+              <input type="hidden" name="form-name" value="contact-home">
+              <input type="hidden" name="bot-field" style="display:none;">
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="h-name">Full Name *</label>
+                  <input type="text" id="h-name" name="name" placeholder="Your name">
+                </div>
+                <div class="form-field">
+                  <label for="h-email">Email *</label>
+                  <input type="email" id="h-email" name="email" placeholder="your@email.com">
+                </div>
+                <div class="form-field">
+                  <label for="h-company">Company</label>
+                  <input type="text" id="h-company" name="company" placeholder="Company name">
+                </div>
+                <div class="form-field">
+                  <label for="h-phone">Phone</label>
+                  <input type="tel" id="h-phone" name="phone" placeholder="(000) 000-0000">
+                </div>
+                <div class="form-field full">
+                  <label for="h-service">Service Needed *</label>
+                  <select id="h-service" name="service">
+                    <option value="">Select a service…</option>
+                    <option>Air Sampling / Exposure Assessment</option>
+                    <option>OSHA Compliance Audit</option>
+                    <option>Noise Survey</option>
+                    <option>Indoor Air Quality</option>
+                    <option>Respiratory Protection Program</option>
+                    <option>Written Programs / HazCom</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="form-field full">
+                  <label for="h-message">Message</label>
+                  <textarea id="h-message" name="message" placeholder="Describe your facility, industry, and any specific concerns…"></textarea>
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:20px;font-size:16px;padding:14px;" onclick="submitHomeForm()">Send Message →</button>
+              <p style="font-size:12px;color:var(--muted);margin-top:12px;text-align:center;">By submitting, you agree to be contacted by an IH-FoA representative.</p>
+            </form>
           </div>
-          <button type="button" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 20px; font-size: 16px; padding: 14px;" onclick="submitIndexForm()">Send Message →</button>
-          <p style="font-size:12px;color:var(--muted);margin-top:12px;text-align:center;">By submitting, you agree to be contacted by an IH-FoA representative.</p>
-          <p id="idx-success" style="display:none;text-align:center;padding:16px 0;font-size:14px;color:#2B5C2E;font-weight:600;">✓ Message sent. We will be in touch within one business day.</p>
-          </form>
+          <div class="success-msg" id="index-success-msg" style="display:none;text-align:center;padding:32px;">
+            <div style="width:64px;height:64px;border-radius:50%;background:var(--green-100);color:var(--green-700);font-size:28px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">✓</div>
+            <h3 style="color:var(--dark-2);margin-bottom:8px;">Message Sent!</h3>
+            <p style="color:var(--muted);font-size:14px;">Thank you. An IH-FoA consultant will be in touch within one business day.<br>For urgent needs, <a href="tel:6787403870" style="color:var(--forest);font-weight:600;">call us directly</a>.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1513,24 +1565,25 @@ nav .btn:hover {
   <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 <script>
-function submitIndexForm() {
-  var name = document.querySelector('#index-contact-form [name="full-name"]').value;
-  var email = document.querySelector('#index-contact-form [name="email"]').value;
+function submitHomeForm() {
+  var name  = document.getElementById('h-name').value;
+  var email = document.getElementById('h-email').value;
   if (!name || !email) { alert('Please fill in your name and email.'); return; }
-  var form = document.getElementById('index-contact-form');
+  var form = document.getElementById('netlify-home-form');
+  var data = new FormData(form);
   fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams(new FormData(form)).toString()
+    body: new URLSearchParams(data).toString()
   })
   .then(function() {
-    form.querySelector('.form-grid').style.display = 'none';
-    form.querySelector('.btn').style.display = 'none';
-    form.querySelector('p:not(#idx-success)').style.display = 'none';
-    document.getElementById('idx-success').style.display = 'block';
+    document.getElementById('index-contact-form').style.display = 'none';
+    document.getElementById('index-success-msg').style.display = 'block';
   })
   .catch(function() {
-    window.location.href = 'contact.html';
+    var btn = document.querySelector('#netlify-home-form .btn');
+    btn.textContent = 'Something went wrong — email info@ih-foa.com directly';
+    btn.style.background = '#7B3B2A';
   });
 }
 </script>
