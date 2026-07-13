@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" style="--blue-800: #2B5C2E; --green-700: #2B5C2E; --forest: #2B5C2E; --forest-dark: #1e4221;">
+<head>
+<!-- Consent Mode default state, set before GA4 loads -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EFTRFYF4YJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EFTRFYF4YJ');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<meta name="theme-color" content="#ffffff">
+<title id="page-title">Blog | IH-FoA</title>
+<meta id="page-description" name="description" content="Industrial hygiene insights from the IH-FoA team.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../site.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"></noscript>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.5/marked.min.js"></script>
+<style>
+html, :root {
+  --blue-950: #0a1a0b !important;
+  --blue-900: #1a3a1c !important;
+  --blue-800: #2B5C2E !important;
+  --blue-600: #3a7a3e !important;
+  --blue-400: #6aab6e !important;
+  --blue-100: #e8f2e8 !important;
+  --green-900: #1e4221 !important;
+  --green-700: #2B5C2E !important;
+  --green-500: #3a7a3e !important;
+  --green-400: #6aab6e !important;
+  --green-100: #e8f2e8 !important;
+  --dark: #0a1a0b !important;
+  --dark-2: #1a2e1b !important;
+  --forest: #2B5C2E !important;
+  --forest-dark: #1e4221 !important;
+  --forest-mid: #3a7a3e !important;
+  --forest-light: #e8f2e8 !important;
+  --rust: #7B3B2A !important;
+  --rust-dark: #5c2b1e !important;
+}
+
+.simple-hero {
+  background: linear-gradient(135deg, #0a1a0b 0%, #1a3a1c 100%);
+  padding: 60px 0 48px;
+}
+.simple-hero .container { max-width: 760px; }
+.simple-tag {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(43, 92, 46, 0.9);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  margin-bottom: 18px;
+}
+.simple-hero h1 {
+  font-size: 34px;
+  font-weight: 800;
+  color: white;
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+.simple-hero .post-meta {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+}
+
+.blog-article {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+}
+.blog-article img.post-cover {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 32px;
+}
+.blog-article h2 { font-size: 26px; font-weight: 700; color: #1a1a1a; margin: 40px 0 18px; line-height: 1.3; }
+.blog-article h3 { font-size: 20px; font-weight: 700; color: #2B5C2E; margin: 32px 0 16px; line-height: 1.4; }
+.blog-article p { font-size: 16px; line-height: 1.8; color: #444444; margin-bottom: 18px; }
+.blog-article strong { font-weight: 700; color: #1a1a1a; }
+.blog-article ul, .blog-article ol { margin: 0 0 20px 22px; }
+.blog-article li { font-size: 16px; line-height: 1.8; color: #444444; margin-bottom: 8px; }
+.blog-article a { color: #2B5C2E; font-weight: 600; }
+.blog-article hr { border: none; border-top: 1px solid #e0e0e0; margin: 36px 0; }
+
+.blog-cta {
+  background: linear-gradient(135deg, #0a1a0b 0%, #1a3a1c 100%);
+  padding: 48px 40px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 56px 0 8px;
+}
+.blog-cta h3 { font-size: 24px; font-weight: 700; color: white; margin-bottom: 14px; }
+.blog-cta p { font-size: 16px; color: rgba(255,255,255,0.85); margin-bottom: 24px; max-width: 520px; margin-left: auto; margin-right: auto; }
+.blog-cta .btn { display: inline-block; padding: 15px 36px; background: linear-gradient(135deg, #2B5C2E, #2B5C2Ecc); color: white; font-weight: 700; font-size: 15px; text-decoration: none; border-radius: 8px; }
+
+@media (max-width: 768px) {
+  .simple-hero h1 { font-size: 26px; }
+  .blog-article h2 { font-size: 21px; }
+}
+</style>
+
+<!-- ═══════ NAV WHITE PROTOTYPE ═══════ -->
+<style>
+#site-nav { background: #ffffff !important; box-shadow: 0 1px 0 rgba(0,0,0,0.08); }
+#site-nav.scrolled {
+  background: rgba(255,255,255,0.78) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.08), 0 4px 24px rgba(0,0,0,0.08) !important;
+}
+#site-nav .nav-inner { display: flex !important; align-items: center !important; }
+#site-nav .nav-links { display: flex !important; align-items: center !important; gap: 36px !important; flex: 1 !important; justify-content: center !important; margin: 0 24px !important; }
+#site-nav .nav-cta { display: flex !important; align-items: center !important; flex-shrink: 0 !important; }
+#site-nav .nav-links a { color: var(--forest) !important; }
+#site-nav .nav-links a:hover, #site-nav .nav-links a.active { color: #1e4221 !important; }
+#site-nav .nav-links a::after { background: var(--forest) !important; }
+#site-nav .nav-logo img { filter: none !important; }
+nav .nav-logo::after, nav .nav-cta a::after { display: none !important; }
+nav .nav-logo { transition: transform 0.25s ease, opacity 0.25s ease; }
+nav .nav-logo:hover { transform: translateY(-2px); opacity: 0.85; }
+@media (max-width: 900px) {
+  #site-nav .nav-links { display: none !important; }
+  #site-nav .nav-cta { display: none !important; }
+  .mobile-toggle { display: block !important; }
+  .mobile-toggle span { background: #2B5C2E !important; }
+  .mobile-toggle.open span { background: #2B5C2E !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<nav id="site-nav">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <picture>
+        <source srcset="../images/ih-foa-logo-landscape.webp" type="image/webp">
+        <img src="../images/ih-foa-logo-landscape.png" alt="IH-FoA Logo" width="160" height="36" fetchpriority="high" style="height:36px;width:auto;display:block;object-fit:contain;">
+      </picture>
+    </a>
+    <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="../about.html">About Us</a>
+      <a href="../services.html">Services</a>
+      <a href="../coverage.html">Coverage</a>
+      <a href="../resources.html" class="active">Resources</a>
+      <a href="../contact.html">Contact Us</a>
+    </div>
+    <div class="nav-cta">
+      <a href="tel:6787403870" class="btn">Talk to an Expert</a>
+    </div>
+  </div>
+  <div class="mobile-menu">
+    <div class="mobile-menu-inner">
+      <div class="mobile-menu-brand">
+        <a href="../index.html">
+          <img src="../images/ih-foa-logo-white.svg" alt="IH-FoA Home" style="height:72px;width:auto;display:block;margin:0 auto;">
+        </a>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About Us</a>
+        <a href="../services.html">Services</a>
+        <a href="../coverage.html">Coverage</a>
+        <a href="../resources.html" class="active">Resources</a>
+        <a href="../contact.html">Contact Us</a>
+      </div>
+      <div class="mobile-nav-cta">
+        <a href="tel:6787403870" class="btn btn-green">Talk to an Expert</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ── SIMPLE HERO, no custom banner image, that is a retainer feature ── -->
+<section class="simple-hero">
+  <div class="container">
+    <span class="simple-tag" id="post-category">Blog</span>
+    <h1 id="post-title">Loading post&hellip;</h1>
+    <div class="post-meta" id="post-meta"></div>
+  </div>
+</section>
+
+<!-- ── ARTICLE BODY ── -->
+<article class="blog-article" id="post-article">
+  <p>Loading&hellip;</p>
+</article>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div style="align-self: flex-start;">
+        <div class="footer-logo"><a href="../index.html"><img src="../images/IH_FOA.png" alt="IH/FoA Logo" style="height: 120px; width: auto;" /></a></div>
+        <div class="footer-social" style="margin-top:20px;">
+          <a href="https://www.linkedin.com/company/industrial-hygiene-forensics-of-americus/" target="_blank" rel="noopener noreferrer" aria-label="IH-FoA on LinkedIn"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        </div>
+        <p style="color: rgba(255,255,255,0.6); font-size: 13px; margin-top:10px;">Expert Industrial Hygiene &middot; Georgia &amp; Southeast</p>
+      </div>
+      <div>
+        <p class="footer-col-head">Services</p>
+        <ul>
+          <li><a href="../services.html">Air Sampling</a></li>
+          <li><a href="../services.html">Noise Surveys</a></li>
+          <li><a href="../services.html">Indoor Air Quality</a></li>
+          <li><a href="../services.html">Mock OSHA Audits</a></li>
+          <li><a href="../services.html">Respiratory Testing</a></li>
+          <li><a href="../services.html">Written Programs</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-head">Company</p>
+        <ul>
+          <li><a href="../about.html">About Us</a></li>
+          <li><a href="../coverage.html">Coverage</a></li>
+          <li><a href="../resources.html">Blog</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-head">Contact</p>
+        <ul>
+          <li><a href="tel:6787403870">Call Us</a></li>
+          <li><a href="mailto:info@ih-foa.com">info@ih-foa.com</a></li>
+          <li style="color:rgba(255,255,255,.65);font-size:13px;">Marietta, GA 30064</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span style="color: rgba(255,255,255,0.6);">&copy; 2026 Industrial Hygiene Forensics of Americus, LLC &middot; All rights reserved &middot; <a href="../privacy-policy.html" style="color:rgba(255,255,255,0.6);text-decoration:underline;">Privacy Policy</a></span>
+      <a href="http://redolense.com" target="_blank" rel="noopener noreferrer" class="redolens-credit" aria-label="Crafted by Redolense">
+        <span class="redolens-prefix">Crafted by</span>
+        <span class="redolens-name">Redolense</span>
+      </a>
+    </div>
+  </div>
+</footer>
+<script src="../site.js" defer></script>
+
+<!-- ── Cookie consent banner ── -->
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie notice">
+  <div class="cookie-banner-inner">
+    <p>We use cookies to understand how visitors use this site and to improve it. See our <a href="../privacy-policy.html">Privacy Policy</a> for details.</p>
+    <div class="cookie-banner-actions">
+      <button id="cookie-decline" type="button">Decline</button>
+      <button id="cookie-accept" type="button">Accept</button>
+    </div>
+  </div>
+</div>
+<style>
+.cookie-banner { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999; background: #0a1a0b; border-top: 1px solid rgba(255,255,255,0.1); padding: 18px 20px; transform: translateY(100%); transition: transform 0.4s ease; }
+.cookie-banner.show { transform: translateY(0); }
+.cookie-banner-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.cookie-banner-inner p { color: rgba(255,255,255,0.85); font-size: 14px; line-height: 1.6; margin: 0; flex: 1; min-width: 240px; }
+.cookie-banner-inner a { color: #6aab6e; text-decoration: underline; }
+.cookie-banner-actions { display: flex; gap: 12px; flex-shrink: 0; }
+.cookie-banner-actions button { padding: 10px 22px; font-size: 14px; font-weight: 700; border-radius: 8px; border: none; cursor: pointer; font-family: inherit; }
+#cookie-decline { background: transparent; color: rgba(255,255,255,0.75); border: 1px solid rgba(255,255,255,0.3); }
+#cookie-accept { background: linear-gradient(135deg, #2B5C2E, #1e4221); color: white; }
+@media (max-width: 600px) {
+  .cookie-banner-inner { flex-direction: column; align-items: stretch; text-align: center; }
+  .cookie-banner-actions { justify-content: center; }
+}
+</style>
+<script>
+(function () {
+  var STORAGE_KEY = 'ihfoa_cookie_consent';
+  var banner = document.getElementById('cookie-banner');
+  var stored = null;
+  try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+  function applyConsent(choice) {
+    if (typeof gtag !== 'function') return;
+    gtag('consent', 'update', { 'analytics_storage': choice === 'granted' ? 'granted' : 'denied' });
+  }
+  if (stored === 'granted' || stored === 'denied') {
+    applyConsent(stored);
+  } else if (banner) {
+    setTimeout(function () { banner.classList.add('show'); }, 600);
+  }
+  var acceptBtn = document.getElementById('cookie-accept');
+  var declineBtn = document.getElementById('cookie-decline');
+  if (acceptBtn) acceptBtn.addEventListener('click', function () {
+    try { localStorage.setItem(STORAGE_KEY, 'granted'); } catch (e) {}
+    applyConsent('granted');
+    if (banner) banner.classList.remove('show');
+  });
+  if (declineBtn) declineBtn.addEventListener('click', function () {
+    try { localStorage.setItem(STORAGE_KEY, 'denied'); } catch (e) {}
+    applyConsent('denied');
+    if (banner) banner.classList.remove('show');
+  });
+})();
+</script>
+
+<!-- ── Load and render this post ── -->
+<script>
+(function () {
+  function slugify(text) {
+    return String(text).toLowerCase().replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-').slice(0, 60);
+  }
+
+  function postId(post) {
+    return slugify(post.title) + '-' + (post.date || '');
+  }
+
+  function notFound() {
+    document.getElementById('post-category').textContent = 'Not Found';
+    document.getElementById('post-title').textContent = "We couldn't find that post";
+    document.getElementById('post-meta').textContent = '';
+    var article = document.getElementById('post-article');
+    article.innerHTML = '';
+    var p = document.createElement('p');
+    p.textContent = "This post may have been moved or unpublished. You can browse everything currently live on the resources page.";
+    var a = document.createElement('a');
+    a.href = '../resources.html';
+    a.className = 'btn btn-primary';
+    a.textContent = 'Back to Resources';
+    article.appendChild(p);
+    article.appendChild(a);
+  }
+
+  var params = new URLSearchParams(window.location.search);
+  var wantedId = params.get('id');
+
+  if (!wantedId) { notFound(); return; }
+
+  fetch('../blog-data.json')
+    .then(function (res) {
+      if (!res.ok) throw new Error('blog-data.json request failed');
+      return res.json();
+    })
+    .then(function (data) {
+      var posts = data.posts || [];
+      var post = posts.find(function (p) { return !p.slug && postId(p) === wantedId; });
+      if (!post) { notFound(); return; }
+
+      document.getElementById('page-title').textContent = post.title + ' | IH-FoA';
+      var desc = document.getElementById('page-description');
+      if (desc) desc.setAttribute('content', post.excerpt || '');
+
+      document.getElementById('post-category').textContent = post.category || 'Blog';
+      document.getElementById('post-title').textContent = post.title;
+
+      var parsedDate = post.date ? new Date(post.date) : null;
+      var dateText = parsedDate && !isNaN(parsedDate)
+        ? parsedDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+        : (post.date || '');
+      document.getElementById('post-meta').textContent = 'IH-FoA Team \u00b7 ' + dateText + (post.readTime ? ' \u00b7 ' + post.readTime : '');
+
+      var article = document.getElementById('post-article');
+      article.innerHTML = '';
+
+      if (post.image) {
+        var img = document.createElement('img');
+        img.className = 'post-cover';
+        img.src = '../' + post.image;
+        img.alt = post.title;
+        img.loading = 'lazy';
+        article.appendChild(img);
+      }
+
+      var bodyWrap = document.createElement('div');
+      if (window.marked && post.body) {
+        bodyWrap.innerHTML = marked.parse(post.body);
+      } else if (post.excerpt) {
+        var fallbackP = document.createElement('p');
+        fallbackP.textContent = post.excerpt;
+        bodyWrap.appendChild(fallbackP);
+      }
+      article.appendChild(bodyWrap);
+
+      var cta = document.createElement('div');
+      cta.className = 'blog-cta';
+      cta.innerHTML = '<h3>Have a question about this?</h3><p>Reach out to the IH-FoA team directly, we are happy to help.</p><a href="../contact.html" class="btn">Contact IH-FoA</a>';
+      article.appendChild(cta);
+    })
+    .catch(notFound);
+})();
+</script>
+</body>
+</html>

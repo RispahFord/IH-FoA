@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Consent Mode default state, set before GA4 loads -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EFTRFYF4YJ"></script>
 <script>
@@ -582,7 +593,7 @@ nav .nav-logo:hover {
       <div><p class="footer-col-head">Contact</p><ul><li><a href="tel:6787403870">Call Us</a></li><li><a href="mailto:info@ih-foa.com">info@ih-foa.com</a></li><li style="color:rgba(255,255,255,.65);font-size:13px;">Marietta, GA 30064</li></ul></div>
     </div>
     <div class="footer-bottom">
-      <span style="color: rgba(255,255,255,0.6);">© 2026 Industrial Hygiene Forensics of Americus, LLC · All rights reserved</span>
+      <span style="color: rgba(255,255,255,0.6);">© 2026 Industrial Hygiene Forensics of Americus, LLC · All rights reserved · <a href="privacy-policy.html" style="color:rgba(255,255,255,0.6);text-decoration:underline;">Privacy Policy</a></span>
       <a href="http://redolense.com" target="_blank" rel="noopener noreferrer" class="redolens-credit" aria-label="Crafted by Redolense">
         <span class="redolens-prefix">Crafted by</span>
         <span class="redolens-name">Redolense</span>
@@ -596,5 +607,113 @@ nav .nav-logo:hover {
 <button id="back-to-top" aria-label="Back to top">
   <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
+
+<!-- ── Cookie consent banner ── -->
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie notice">
+  <div class="cookie-banner-inner">
+    <p>We use cookies to understand how visitors use this site and to improve it. See our <a href="privacy-policy.html">Privacy Policy</a> for details.</p>
+    <div class="cookie-banner-actions">
+      <button id="cookie-decline" type="button">Decline</button>
+      <button id="cookie-accept" type="button">Accept</button>
+    </div>
+  </div>
+</div>
+<style>
+.cookie-banner {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 9999;
+  background: #0a1a0b;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 18px 20px;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+.cookie-banner.show { transform: translateY(0); }
+.cookie-banner-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.cookie-banner-inner p {
+  color: rgba(255,255,255,0.85);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+  min-width: 240px;
+}
+.cookie-banner-inner a { color: #6aab6e; text-decoration: underline; }
+.cookie-banner-actions { display: flex; gap: 12px; flex-shrink: 0; }
+.cookie-banner-actions button {
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  font-family: inherit;
+}
+#cookie-decline {
+  background: transparent;
+  color: rgba(255,255,255,0.75);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+#cookie-decline:hover { border-color: rgba(255,255,255,0.6); }
+#cookie-accept {
+  background: linear-gradient(135deg, #2B5C2E, #1e4221);
+  color: white;
+}
+#cookie-accept:hover { transform: translateY(-2px); }
+@media (max-width: 600px) {
+  .cookie-banner-inner { flex-direction: column; align-items: stretch; text-align: center; }
+  .cookie-banner-actions { justify-content: center; }
+}
+</style>
+<script>
+(function () {
+  var STORAGE_KEY = 'ihfoa_cookie_consent';
+  var banner = document.getElementById('cookie-banner');
+  var stored = null;
+  try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+
+  function applyConsent(choice) {
+    if (typeof gtag !== 'function') return;
+    gtag('consent', 'update', {
+      'analytics_storage': choice === 'granted' ? 'granted' : 'denied'
+    });
+  }
+
+  if (stored === 'granted' || stored === 'denied') {
+    applyConsent(stored);
+  } else if (banner) {
+    setTimeout(function () { banner.classList.add('show'); }, 600);
+  }
+
+  var acceptBtn = document.getElementById('cookie-accept');
+  var declineBtn = document.getElementById('cookie-decline');
+
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', function () {
+      try { localStorage.setItem(STORAGE_KEY, 'granted'); } catch (e) {}
+      applyConsent('granted');
+      if (banner) banner.classList.remove('show');
+    });
+  }
+  if (declineBtn) {
+    declineBtn.addEventListener('click', function () {
+      try { localStorage.setItem(STORAGE_KEY, 'denied'); } catch (e) {}
+      applyConsent('denied');
+      if (banner) banner.classList.remove('show');
+    });
+  }
+})();
+</script>
+
 </body>
 </html>

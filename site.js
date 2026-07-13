@@ -202,135 +202,121 @@
     });
   }
 
-  // ─── LOAD BLOG POSTS ───
-  function loadBlogPosts() {
-    const grid = document.querySelector('.blog-grid');
+  // ─── BLOG POSTS: shared data source is blog-data.json ───
+  // Fed by Decap CMS (see /admin). Hand built articles keep an explicit
+  // "slug" pointing at their own page. CMS created posts have no slug, so
+  // a link is generated to the generic blog/post.html template instead.
+
+  function slugify(text) {
+    return String(text)
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '')
+      .trim()
+      .replace(/\s+/g, '-')
+      .slice(0, 60);
+  }
+
+  function postHref(post) {
+    if (post.slug) return post.slug;
+    const id = slugify(post.title) + '-' + (post.date || '');
+    return 'blog/post.html?id=' + encodeURIComponent(id);
+  }
+
+  function buildBlogCard(post, index) {
+    const card = document.createElement('a');
+    card.href = postHref(post);
+    card.className = 'blog-card';
+    card.setAttribute('data-reveal', '');
+    card.setAttribute('data-delay', ((index % 3) + 1).toString());
+    card.style.textDecoration = 'none';
+    card.style.display = 'block';
+    card.style.color = 'inherit';
+
+    // Safe DOM construction, no innerHTML with data fields
+    const thumb = document.createElement('div');
+    thumb.className = 'blog-thumb';
+    const img = document.createElement('img');
+    img.loading = 'lazy';
+    img.src = post.image;
+    img.alt = post.title;
+    img.style.cssText = 'width:100%; height:200px; object-fit:cover;';
+    thumb.appendChild(img);
+
+    const body = document.createElement('div');
+    body.style.padding = '24px';
+
+    const tag = document.createElement('div');
+    tag.className = 'blog-tag';
+    tag.textContent = (post.category || '').toUpperCase();
+
+    const heading = document.createElement('h3');
+    heading.style.cssText = 'margin:12px 0 16px; font-size:16px;';
+    heading.textContent = post.title;
+
+    const meta = document.createElement('div');
+    meta.className = 'blog-meta';
+
+    const dateSpan = document.createElement('span');
+    const parsedDate = post.date ? new Date(post.date) : null;
+    dateSpan.textContent = parsedDate && !isNaN(parsedDate)
+      ? parsedDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+      : (post.date || '');
+
+    const readSpan = document.createElement('span');
+    readSpan.textContent = post.readTime || '';
+
+    meta.appendChild(dateSpan);
+    meta.appendChild(readSpan);
+    body.appendChild(tag);
+    body.appendChild(heading);
+    body.appendChild(meta);
+    card.appendChild(thumb);
+    card.appendChild(body);
+
+    return card;
+  }
+
+  function renderGrid(grid, posts, cap) {
     if (!grid) return;
-
-    // Clear existing content
     grid.innerHTML = '';
+    const list = cap ? posts.slice(0, cap) : posts;
+    list.forEach((post, index) => {
+      const card = buildBlogCard(post, index);
+      grid.appendChild(card);
+      observer.observe(card);
+    });
+  }
 
-    // Check if BLOG_POSTS is available (from blog-data.js)
-    if (typeof BLOG_POSTS !== 'undefined' && BLOG_POSTS.length > 0) {
-      // Load from data
-      const posts = BLOG_POSTS.slice(0, 3);
+  function loadBlogPosts() {
+    const previewGrid = document.querySelector('.blog-grid');
+    const fullGrid = document.querySelector('.blog-full-grid');
+    if (!previewGrid && !fullGrid) return;
 
-      posts.forEach((post, index) => {
-        const card = document.createElement('a');
-        card.href = post.slug;
-        card.className = 'blog-card';
-        card.setAttribute('data-reveal', '');
-        card.setAttribute('data-delay', (index + 1).toString());
-        card.style.textDecoration = 'none';
-        card.style.display = 'block';
-        card.style.color = 'inherit';
-
-        // ── Safe DOM construction — no innerHTML with data fields ──
-        const thumb = document.createElement('div');
-        thumb.className = 'blog-thumb';
-        const img = document.createElement('img');
-        img.loading = 'lazy';
-        img.src = post.image;
-        img.alt = post.title;
-        img.style.cssText = 'width:100%; height:200px; object-fit:cover;';
-        thumb.appendChild(img);
-
-        const body = document.createElement('div');
-        body.style.padding = '24px';
-
-        const tag = document.createElement('div');
-        tag.className = 'blog-tag';
-        tag.textContent = post.category.toUpperCase();
-
-        const heading = document.createElement('h3');
-        heading.style.cssText = 'margin:12px 0 16px; font-size:16px;';
-        heading.textContent = post.title;
-
-        const meta = document.createElement('div');
-        meta.className = 'blog-meta';
-
-        const dateSpan = document.createElement('span');
-        dateSpan.textContent = new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-
-        const readSpan = document.createElement('span');
-        readSpan.textContent = post.readTime || '';
-
-        meta.appendChild(dateSpan);
-        meta.appendChild(readSpan);
-        body.appendChild(tag);
-        body.appendChild(heading);
-        body.appendChild(meta);
-        card.appendChild(thumb);
-        card.appendChild(body);
-
-        grid.appendChild(card);
-        observer.observe(card);
+    fetch('blog-data.json')
+      .then((res) => {
+        if (!res.ok) throw new Error('blog-data.json request failed');
+        return res.json();
+      })
+      .then((data) => {
+        const posts = (data.posts || []).slice().sort((a, b) => new Date(b.date) - new Date(a.date));
+        renderGrid(previewGrid, posts, 3);
+        renderGrid(fullGrid, posts, null);
+      })
+      .catch(() => {
+        // Fallback for local file:// testing, or if the fetch fails
+        const fallbackPosts = [
+          {
+            title: "OSHA's Crystalline Silica Standard: A Complete Field Guide for Manufacturing Compliance",
+            category: "Silica Safety",
+            date: "2026-04-15",
+            readTime: "12 min read",
+            image: "images/blog-silica-dust.webp",
+            slug: "blog/crystalline-silica.html"
+          }
+        ];
+        renderGrid(previewGrid, fallbackPosts, 3);
+        renderGrid(fullGrid, fallbackPosts, null);
       });
-    } else {
-      // Fallback for local development (file:// protocol)
-      const fallbackPosts = [
-        {
-          title: "OSHA's Crystalline Silica Standard: A Complete Field Guide for Manufacturing Compliance",
-          category: "Silica Safety",
-          date: "Apr 15, 2026",
-          readTime: "12 min read",
-          image: "images/blog-silica-dust.webp",
-          slug: "blog/crystalline-silica.html"
-        }
-      ];
-
-      fallbackPosts.forEach((post, index) => {
-        const card = document.createElement('a');
-        card.href = post.slug;
-        card.className = 'blog-card';
-        card.setAttribute('data-reveal', '');
-        card.setAttribute('data-delay', (index + 1).toString());
-        card.style.textDecoration = 'none';
-        card.style.display = 'block';
-        card.style.color = 'inherit';
-
-        // ── Safe DOM construction — no innerHTML with data fields ──
-        const thumb = document.createElement('div');
-        thumb.className = 'blog-thumb';
-        const img = document.createElement('img');
-        img.loading = 'lazy';
-        img.src = post.image;
-        img.alt = post.title;
-        img.style.cssText = 'width:100%; height:200px; object-fit:cover;';
-        thumb.appendChild(img);
-
-        const body = document.createElement('div');
-        body.style.padding = '24px';
-
-        const tag = document.createElement('div');
-        tag.className = 'blog-tag';
-        tag.textContent = post.category.toUpperCase();
-
-        const heading = document.createElement('h3');
-        heading.style.cssText = 'margin:12px 0 16px; font-size:16px;';
-        heading.textContent = post.title;
-
-        const meta = document.createElement('div');
-        meta.className = 'blog-meta';
-
-        const dateSpan = document.createElement('span');
-        dateSpan.textContent = post.date;
-
-        const readSpan = document.createElement('span');
-        readSpan.textContent = post.readTime || '';
-
-        meta.appendChild(dateSpan);
-        meta.appendChild(readSpan);
-        body.appendChild(tag);
-        body.appendChild(heading);
-        body.appendChild(meta);
-        card.appendChild(thumb);
-        card.appendChild(body);
-
-        grid.appendChild(card);
-        observer.observe(card);
-      });
-    }
   }
 
   // Load blog posts on page load
